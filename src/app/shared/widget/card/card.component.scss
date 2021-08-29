@@ -1,0 +1,60 @@
+.info{
+  //background: black;
+  .main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+
+    h3{
+      margin: 0;
+      line-height: 2px;
+    }
+
+    h4{
+      margin: 0;
+      color: gray;
+    }
+  }
+
+  .stadistics{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+
+    .numberTarget{
+      font-size: 30px;
+      .textTarget{
+        font-size: 15px;
+      }
+    }
+
+    .numAverage{
+      font-size: 30px;
+      .textAverage{
+        font-size: 15px;
+        .up{
+          color: yellowgreen;
+        }
+        .down{
+          color: rgb(255, 0, 0);
+        }
+      }
+    }
+  }
+
+
+  .mat-icon,
+  .description{
+    color: green;
+    font-size: 2em;
+  }
+
+  .mat-icon{
+    position: relative;
+    padding: 0 20px;
+    top: 5px;
+  }
+}

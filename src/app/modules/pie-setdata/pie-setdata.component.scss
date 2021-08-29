@@ -1,0 +1,194 @@
+.wrapper{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  //border: 1px solid blue;
+
+
+  .formContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    //border: 1px solid red;
+    justify-content: space-around;
+    gap: 20px;
+
+    .labelsForm{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 250px;
+      width: 30%;
+      height: fit-content;
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 5px;
+      .group{
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        //border: 1px solid black;
+        label{
+          margin-right: 5px;
+          font-size: 12px;
+        }
+        input[type=text]{
+          font-size: 12px;
+          border: none;
+          border-bottom:1px solid yellowgreen;
+          background: transparent;
+        }
+
+      }
+      input[type=submit]{
+        margin-top: 20px;
+        width: fit-content;
+        padding: 5px 10px;
+        border-radius: 5px;
+        align-self: center;
+        border: none;
+        background: yellowgreen;
+        color: white;
+        font-size: 12px;
+
+      }
+    }
+
+
+    .dataForm{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 250px;
+      width: 30%;
+      height: fit-content;
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 5px;
+      .group{
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        //border: 1px solid black;
+        label{
+          margin-right: 5px;
+          font-size: 12px;
+        }
+        input[type=text]{
+          font-size: 12px;
+          border: none;
+          background: transparent;
+          border-bottom:1px solid yellowgreen;
+        }
+
+      }
+      input[type=submit]{
+        margin-top: 20px;
+        width: fit-content;
+        padding: 5px 10px;
+        border-radius: 5px;
+        align-self: center;
+        border: none;
+        background: yellowgreen;
+        color: white;
+        font-size: 12px;
+
+      }
+    }
+
+    .tableContent{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 250px;
+      width: 30%;
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 5px;
+      .dataDB{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 250px;
+        width: 100%;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 10px 5px;
+        box-sizing: content-box;
+
+        .deleteWarn{
+          color: red;
+          font-size: 12px;
+        }
+        .dataElements{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 250px;
+          border: 1px solid yellowgreen;
+          border-radius: 5px;
+          margin: 5px 0;
+
+          .elemetName{
+            width: 50%;
+            margin-right: 10px;
+            //border: 1px solid red;
+            align-self: flex-end;
+            text-align: end;
+          }
+          .elemetData{
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+            align-content: space-between;
+            width: 40%;
+            //border: 1px solid green;
+            .data{
+              //border: 1px solid blue;
+              width: fit-content;
+            }
+            .icon{
+              position: absolute;
+              //border: 1px solid red;
+              width: fit-content;
+              right: 0;
+              .fa-trash{
+                color: rgb(110, 0, 0);
+              }
+            }
+
+
+          }
+        }
+      }
+
+      .percentage{
+        margin-top: 10px;
+        text-align: center;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+}
+

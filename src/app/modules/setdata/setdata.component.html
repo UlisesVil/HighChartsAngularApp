@@ -1,0 +1,69 @@
+<div class="wrapper">
+
+
+  <div class="dataContainer">
+
+    <div class="formContainer">
+
+
+      <form class="formLabel" #formLabelsMainChart="ngForm" (ngSubmit)="onSubmitLabel(formLabelsMainChart)">
+        <p>Chart Labels</p>
+        <div class="savedWarn" *ngIf="savedWarn">
+          {{savedWarn}}
+        </div>
+
+        <div class="group">
+          <label for="title">Chart Title</label>
+          <input type="text" name="title" #title="ngModel" [(ngModel)]='chartLabels.title' placeholder="Chart Title">
+        </div>
+        <div class="group">
+          <label for="subTitle">Chart Subtitle</label>
+          <input type="text" name="subTitle" #subTitle="ngModel" [(ngModel)]='chartLabels.subTitle' placeholder="Chart Sub-Title">
+        </div>
+        <div class="group">
+          <label for="labelXAxis">Label X Axis</label>
+          <input type="text" name="labelXAxis" #labelXAxis="ngModel" [(ngModel)]='chartLabels.labelXAxis' placeholder="X Label">
+        </div>
+        <div class="group">
+          <label for="labelYAxis">Label Y Axis</label>
+          <input type="text" name="labelYAxis" #labelYAxis="ngModel" [(ngModel)]='chartLabels.labelYAxis' placeholder="Y Label">
+        </div>
+        <div class="group">
+          <label for="toolTip">Tooltip</label>
+          <input type="text" name="toolTip" #toolTip="ngModel" [(ngModel)]='chartLabels.toolTip' placeholder="Value Label">
+        </div>
+          <input type="submit" value="Save Labels">
+
+      </form>
+
+      <form class="formData" #formDataMainChart="ngForm" (ngSubmit)="onSubmitData(formDataMainChart)" *ngIf="idLabel">
+        <p>Chart Series Data</p>
+        <input type="text" name="seriesName" #seriesName="ngModel" [(ngModel)]='chartData.seriesName' placeholder="Serie's Name">
+        <input type="text" name="data" #data="ngModel" [(ngModel)]='chartData.data' placeholder="Serie's Data">
+        <input type="Number" name="target" #target="ngModel" [(ngModel)]='chartData.target' placeholder="Serie's Target">
+
+        <input type="submit" value="Save Series">
+      </form>
+    </div>
+
+    <div class="chartValues">
+      <h3>Data Series</h3>
+      <div class="deleteWarn">{{deleteWarn}}</div>
+      <div class="dataSeries" *ngIf='dataSeries'>
+        <div class="series" *ngFor='let item of dataSeries'>
+          <div class="block">
+            <i class="fas fa-trash" title="Delete this Series" (click)="deleteSeries(item.id)"></i>
+            <div class="seriesName">{{item.name}}</div>
+            <div class="seriesValue">{{item.data}}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+      <app-widget-area (dataSeries)="dataSeriesOutput($event)" (dataLabelsId)="getIdLabel($event)" ></app-widget-area>
+
+
+</div>
