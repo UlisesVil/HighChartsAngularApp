@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
 import { DashboardService } from '../../../modules/dashboard.service';
+import theme from 'highcharts/themes/dark-unica';
 
 @Component({
   selector: 'app-widget-area',
@@ -29,7 +30,7 @@ export class AreaComponent implements OnInit {
 
 
     this.getMainChartInfo();
-
+    theme(Highcharts);
 
   }
 

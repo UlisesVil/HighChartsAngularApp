@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   //border: 1px solid blue;
-
+  margin-bottom: 50px;
 
   .formContainer{
     display: flex;
@@ -22,7 +22,7 @@
       width: 30%;
       height: fit-content;
       padding: 10px;
-      border: 1px solid black;
+      box-shadow: 0px 0px 10px 2px black;
       border-radius: 5px;
       .group{
         width: fit-content;
@@ -67,7 +67,7 @@
       width: 30%;
       height: fit-content;
       padding: 10px;
-      border: 1px solid black;
+      box-shadow: 0px 0px 10px 2px black;
       border-radius: 5px;
       .group{
         width: fit-content;
@@ -110,7 +110,7 @@
       min-width: 250px;
       width: 30%;
       padding: 10px;
-      border: 1px solid black;
+      box-shadow: 0px 0px 10px 2px black;
       border-radius: 5px;
       .dataDB{
         display: flex;
@@ -119,7 +119,7 @@
         align-items: center;
         min-width: 250px;
         width: 100%;
-        border: 1px solid black;
+        //border: 1px solid black;
         border-radius: 5px;
         padding: 10px 5px;
         box-sizing: content-box;
@@ -178,8 +178,6 @@
       }
     }
   }
-
-
 
 
 

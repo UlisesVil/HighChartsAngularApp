@@ -10,12 +10,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from '../../modules/dashboard.service';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { SetdataComponent } from '../../modules/setdata/setdata.component';
 import { FormsModule } from '@angular/forms';
 import { PieSetdataComponent } from '../../modules/pie-setdata/pie-setdata.component';
+import { TableSetdataComponent } from '../../modules/table-setdata/table-setdata.component';
 
 
 @NgModule({
@@ -24,7 +23,8 @@ import { PieSetdataComponent } from '../../modules/pie-setdata/pie-setdata.compo
     DashboardComponent,
     PostsComponent,
     SetdataComponent,
-    PieSetdataComponent
+    PieSetdataComponent,
+    TableSetdataComponent,
 
   ],
   imports: [
@@ -35,8 +35,6 @@ import { PieSetdataComponent } from '../../modules/pie-setdata/pie-setdata.compo
     MatDividerModule,
     FlexLayoutModule,
     MatCardModule,
-    MatPaginatorModule,
-    MatTableModule,
     HttpClientModule,
     FormsModule
 

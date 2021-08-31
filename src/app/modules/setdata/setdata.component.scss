@@ -4,7 +4,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   //border: 1px solid red;
-
   align-items: center;
   justify-content: center;
 
@@ -14,18 +13,17 @@
 
   .dataContainer{
     width: 100%;
-    min-width: 400px;
+    min-width: 250px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 20px;
     //border: 1px solid rgb(255, 153, 0);
 
     .formContainer{
       width: 30%;
-      min-width: 250px;
+      min-width: 400px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -35,16 +33,19 @@
 
 
 
+
       .formLabel{
         display: flex;
         flex-direction: column;
-        width: 200px;
+        min-width: 200px;
         align-items: center;
         justify-content: center;
-        padding: 20px;
-        border: 1px solid black;
+        padding: 20px 40px;
+        //border: 1px solid black;
         border-radius: 5px;
         margin: 20px 10px;
+        box-shadow: 0px 0px 10px 2px black;
+        box-sizing: border-box;
 
         p{
           margin: 0;
@@ -68,11 +69,11 @@
           input[type=text],
           input[type=number]{
             margin-top: 10px;
-            outline: none;
-            border-top: 0;
-            border-right: 0;
-            border-left: 0;
+            background: transparent;
+            color: whitesmoke;
+            border: none;
             border-bottom: 1px solid yellowgreen;
+            outline: none;
             font-size: 12px;
           }
         }
@@ -90,7 +91,28 @@
           color: white;
           text-shadow: 2px 2px 2px black;
         }
+
+        @media screen and (max-width:620px){
+          .group{
+            flex-direction: column;
+
+            label{
+              margin-top: 10px;
+            }
+
+            input[type=text],
+            input[type=number]{
+              margin: 0;
+            }
+          }
+        }
       }
+      @media screen and (max-width:620px){
+        .formLabel{
+          margin: 0;
+        }
+      }
+
       .formData{
         display: flex;
         flex-direction: column;
@@ -98,18 +120,19 @@
         align-items: center;
         justify-content: center;
         padding: 20px;
-        border: 1px solid black;
+        //border: 1px solid black;
         border-radius: 5px;
         margin: 20px 10px;
+        box-shadow: 0px 0px 10px 2px black;
 
         input[type=text],
         input[type=number]{
           margin-top: 10px;
-          outline: none;
-          border-top: 0;
-          border-right: 0;
-          border-left: 0;
+          background: transparent;
+          color: whitesmoke;
+          border: none;
           border-bottom: 1px solid yellowgreen;
+          outline: none;
           font-size: 12px;
         }
 
@@ -126,19 +149,30 @@
 
       }
     }
+    @media screen and (max-width:430px){
+      .formContainer{
+        min-width:fit-content;
+      }
+    }
 
 
     .chartValues{
       display: flex;
+      flex-grow: 2;
+      align-content: center;
+      justify-content: center;
+      align-self: flex-start;
+      min-width: 250px;
       width: 45%;
       height: fit-content;
       flex-wrap: wrap;
       flex-direction: row;
-      align-self: flex-start;
       //border: 1px solid rgb(68, 0, 255);
+      padding: 20px;
+      box-sizing: content-box;
 
       h3{
-        margin: 0px;
+        margin: 0 0 10px;
       }
 
       .deleteWarn{
@@ -148,16 +182,19 @@
 
       .dataSeries{
         display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      gap: 10px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 10px;
+
         .series{
           //border: 1px solid red;
           .block{
             position: relative;
             padding: 2px 20px;
             font-size: 12px;
-            border: 1px solid black;
+            //border: 1px solid black;
+            box-shadow: 0px 0px 10px 2px black;
             border-radius: 5px;
             margin-top: 3px;
 
@@ -179,20 +216,30 @@
           }
         }
       }
-
+      @media screen and (max-width:620px){
+        .dataSeries{
+          justify-content: center;
+        }
+      }
     }
 
 
   }
-
-
-
+  @media screen and (max-width:620px){
+    .dataContainer{
+      justify-content: center;
+    }
+  }
 
   app-widget-area{
     width: 100%;
+    margin-bottom: 50px;
+    box-shadow: 0px 0px 10px 2px black;
 
   }
 
 
 
+
 }
+
