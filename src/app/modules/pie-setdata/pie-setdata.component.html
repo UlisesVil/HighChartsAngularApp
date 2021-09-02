@@ -1,6 +1,5 @@
 <div class="wrapper">
   <div class="formContainer">
-
     <form class="labelsForm" #setPieLabels="ngForm"  (ngSubmit)="onSubmitLabels(setPieLabels)">
       <div class="group">
         <label for="title">Chart Title: </label>
@@ -9,15 +8,13 @@
       <div class="group">
         <label for="valueSufix">Value Suffix: </label>
         <input type="text" name="valueSufix" #valueSufix="ngModel" [(ngModel)]="pieChartLabels.valueSufix">
-      </div><div class="group">
+      </div>
+      <div class="group">
         <label for="seriesName">Series Name: </label>
         <input type="text" name="seriesName" #seriesName="ngModel" [(ngModel)]="pieChartLabels.seriesName">
       </div>
       <input type="submit" value="Save Labels">
     </form>
-
-
-
 
     <form class="dataForm" #setPieData="ngForm"  (ngSubmit)="onSubmitData(setPieData)">
       <div class="group">
@@ -28,7 +25,6 @@
         <label for="percentage">Percentage: </label>
         <input type="text" name="percentage" #percentage="ngModel" [(ngModel)]="pieChartData.percentage">
       </div>
-
       <input type="submit" value="Save Data">
     </form>
 
@@ -46,13 +42,17 @@
               {{element.data}} {{pieChartLabels.valueSufix}}
             </div>
             <div class="icon">
-            <i class="fas fa-trash" title="Delete this Series" (click)="deleteSeries(element.id)"></i>
+              <i class="fas fa-trash"
+                 title="Delete this Series"
+                 (click)="deleteSeries(element.id)">
+              </i>
             </div>
           </td>
         </tr>
       </table>
       <div class="percentage">
-        The Percentages Sum is: {{totalPercentage}}%<br>
+        The Percentages Sum is: {{totalPercentage}}%
+        <br>
         <span *ngIf="totalPercentage < 100">Add more elements to complete 100%</span>
         <span *ngIf="totalPercentage == 100" >Great!!! 100% is complete</span>
         <span *ngIf="totalPercentage > 100">The sum of all elements is greater than 100%, delete some elements or adjust the values</span>
@@ -60,6 +60,6 @@
     </div>
   </div>
 
-<app-widget-pie class="pieSection" (dataSeries)="dataSeriesOutput($event)" (dataLabelsId)="getIdLabel($event)"></app-widget-pie>
+  <app-widget-pie class="pieSection" (dataSeries)="dataSeriesOutput($event)" (dataLabelsId)="getIdLabel($event)"></app-widget-pie>
 
 </div>

@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
-import { DashboardService } from 'src/app/modules/dashboard.service';
-//import Variablepie from "highcharts/modules/variable-pie";
+import { PiechartService } from '../../../services/piechart.service';
 import theme from 'highcharts/themes/dark-unica';
 
 
@@ -22,7 +21,7 @@ export class PieComponent implements OnInit {
   //public theme:any;
 
   constructor(
-    public _dashboardService: DashboardService
+    public _piechartService: PiechartService
   ) {
 
    }
@@ -35,7 +34,7 @@ export class PieComponent implements OnInit {
 
 
   getPieChartInfo(){
-    this._dashboardService.getPieChartLabels().subscribe(
+    this._piechartService.getPieChartLabels().subscribe(
       res=>{
         console.log(res.data);
         console.log(res);
@@ -44,7 +43,7 @@ export class PieComponent implements OnInit {
           this.dataLabelsId.emit(res.data[0]);
           let dataId=res.data[0]._id;
 
-          this._dashboardService.getAllpiedata(dataId).subscribe(
+          this._piechartService.getAllpiedata(dataId).subscribe(
             res=>{
               console.log(res);
               let data=[];

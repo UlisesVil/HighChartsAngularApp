@@ -4,14 +4,14 @@
 
 .stats-cards{
   .mat-card{
-    overflow: hidden;
-    margin-top: 20px;
+    min-width: 250px;
     background:#3d3d3d;
     color: whitesmoke;
-    box-shadow: 0px 0px 10px 2px black;
-    min-width: 250px;
+    margin-top: 20px;
     margin-right: 10px;
     margin-left: 10px;
+    box-shadow: 0px 0px 10px 2px black;
+    overflow: hidden;
   }
 }
 

@@ -7,7 +7,6 @@ export class TableLabelModel {
   ){}
 }
 
-
 export class TableDataModel {
   constructor(
     public tableLabelId:String,

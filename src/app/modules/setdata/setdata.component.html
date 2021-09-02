@@ -1,17 +1,11 @@
 <div class="wrapper">
-
-
   <div class="dataContainer">
-
     <div class="formContainer">
-
-
       <form class="formLabel" #formLabelsMainChart="ngForm" (ngSubmit)="onSubmitLabel(formLabelsMainChart)">
         <p>Chart Labels</p>
         <div class="savedWarn" *ngIf="savedWarn">
           {{savedWarn}}
         </div>
-
         <div class="group">
           <label for="title">Chart Title:</label>
           <input type="text" name="title" #title="ngModel" [(ngModel)]='chartLabels.title' placeholder="Chart Title">
@@ -32,8 +26,7 @@
           <label for="toolTip">Tooltip:</label>
           <input type="text" name="toolTip" #toolTip="ngModel" [(ngModel)]='chartLabels.toolTip' placeholder="Value Label">
         </div>
-          <input type="submit" value="Save Labels">
-
+        <input type="submit" value="Save Labels">
       </form>
 
       <form class="formData" #formDataMainChart="ngForm" (ngSubmit)="onSubmitData(formDataMainChart)" *ngIf="idLabel">
@@ -41,7 +34,6 @@
         <input type="text" name="seriesName" #seriesName="ngModel" [(ngModel)]='chartData.seriesName' placeholder="Serie's Name">
         <input type="text" name="data" #data="ngModel" [(ngModel)]='chartData.data' placeholder="Serie's Value">
         <input type="Number" name="target" #target="ngModel" [(ngModel)]='chartData.target' placeholder="Serie's Target">
-
         <input type="submit" value="Save Series">
       </form>
     </div>
@@ -58,12 +50,9 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
-
-      <app-widget-area (dataSeries)="dataSeriesOutput($event)" (dataLabelsId)="getIdLabel($event)" ></app-widget-area>
-
+  <app-widget-area (dataSeries)="dataSeriesOutput($event)" (dataLabelsId)="getIdLabel($event)" ></app-widget-area>
 
 </div>

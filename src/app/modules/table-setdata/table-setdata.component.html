@@ -1,16 +1,13 @@
-
 <form class="tableLabelsForm" #tableLabelsForm='ngForm' (ngSubmit)="onSubmitLabelsTable(tableLabelsForm)">
   <div class="groupContent">
     <div class="group">
       <label for="header1">Header 1:</label>
       <input type="text" name='header1' #header1='ngModel' [(ngModel)]="tableLabelLine.header1">
     </div>
-
     <div class="group">
       <label for="header2">Header 2:</label>
       <input type="text" name='header2' #header2='ngModel' [(ngModel)]="tableLabelLine.header2">
     </div>
-
     <div class="group">
       <label for="header3">Header 3:</label>
       <input type="text" name='header3' #header3='ngModel' [(ngModel)]="tableLabelLine.header3">
@@ -19,9 +16,7 @@
   <input type="submit" value="Save Labels">
 </form>
 
-
-
-<form class="tableDataForm" #tableDataForm='ngForm'   (ngSubmit)="onsubmitDataTable(tableDataForm)" *ngIf="idLabel"><!---->
+<form class="tableDataForm" #tableDataForm='ngForm' (ngSubmit)="onsubmitDataTable(tableDataForm)" *ngIf="idLabel">
   <div class="groupContent">
     <div class="group">
       <label for="dataH1">Value H1:</label>
@@ -37,10 +32,6 @@
     </div>
   </div>
   <input type="submit" value="Save Data Line">
-
-
 </form>
 
-<app-widget-table (dataSeries)="dataSeriesOutput($event)" (dataLabelsId)="getIdLabel($event)"></app-widget-table>
-
-
+<app-widget-table  (dataLabelsId)="getIdLabel($event)"></app-widget-table>

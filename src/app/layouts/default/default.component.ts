@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './default.component.html',
   styleUrls: ['./default.component.scss']
 })
-export class DefaultComponent implements OnInit {
 
+export class DefaultComponent implements OnInit {
   sidebarOpen=false;
 
   constructor() { }
@@ -15,7 +15,6 @@ export class DefaultComponent implements OnInit {
   }
 
   sideBarToggler(e){
-    console.log(e);
     this.sidebarOpen=!this.sidebarOpen;
   }
 

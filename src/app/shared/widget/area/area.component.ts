@@ -1,14 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
-import { DashboardService } from '../../../modules/dashboard.service';
+import { MainchartService } from '../../../services/mainchart.service'
 import theme from 'highcharts/themes/dark-unica';
 
 @Component({
   selector: 'app-widget-area',
   templateUrl: './area.component.html',
-  styleUrls: ['./area.component.scss'],
-  providers:[ DashboardService ]
+  styleUrls: ['./area.component.scss']
 })
 export class AreaComponent implements OnInit {
   public title:String;
@@ -22,7 +21,7 @@ export class AreaComponent implements OnInit {
   //data:any;
 
   constructor(
-    public _dashboardService: DashboardService
+    public _mainchartService: MainchartService
   ) { }
 
 
@@ -36,7 +35,7 @@ export class AreaComponent implements OnInit {
 
   getMainChartInfo(){
 
-    this._dashboardService.getBigChartLabels().subscribe(
+    this._mainchartService.getBigChartLabels().subscribe(
       res=>{
         console.log(res.data);
         console.log(res);
@@ -46,7 +45,7 @@ export class AreaComponent implements OnInit {
           this.dataLabelsId.emit(res.data[0]);
           let dataId=res.data[0]._id;
 
-          this._dashboardService.getAlldata(dataId).subscribe(
+          this._mainchartService.getAlldata(dataId).subscribe(
             res=>{
               console.log(res);
               let data=[];

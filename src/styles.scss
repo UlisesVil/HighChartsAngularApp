@@ -1,15 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+
+ }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: rgba(0, 0, 0, 0);
+
 }
+
+
 
 .mat-drawer-content{
   background: #313131;
   color: whitesmoke;
+  box-sizing: content-box;
 }
 
 .mat-nav-list{
