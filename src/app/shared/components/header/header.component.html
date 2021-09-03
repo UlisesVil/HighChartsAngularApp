@@ -1,10 +1,11 @@
 <mat-toolbar >
   <mat-toolbar-row>
+
+    <img src="assets/icons/graphIcon01.jpg" alt="logo">
+
     <button mat-icon-button (click)="toggleSideBar()">
       <mat-icon>menu</mat-icon>
     </button>
-
-    <span>APP-Logo</span>
 
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
       <ul fxLayout="row" fxLayoutGap="20px">
@@ -18,20 +19,8 @@
             <mat-icon>help_outline</mat-icon>
           </button>
         </li>
-        <!--<li>
-          <button mat-button [matMenuTriggerFor]="menu">
-            <mat-icon>person_outline</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>exit_to_app</mat-icon>
-              Sign Out
-            </button>
-          </mat-menu>
-        </li>-->
       </ul>
     </div>
 
   </mat-toolbar-row>
-
 </mat-toolbar>

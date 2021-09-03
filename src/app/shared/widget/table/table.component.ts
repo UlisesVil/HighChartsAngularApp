@@ -18,11 +18,13 @@ export interface PeriodicElement {
 export class TableComponent implements OnInit {
   @Output() dataLabelsId: EventEmitter<any>= new EventEmitter();
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
   public displayedColumns: string[] = ['position', 'dataH1', 'dataH2', 'dataH3'];
   public ELEMENT_DATA: PeriodicElement[];
   public dataSource:any;
   public labelsData:any;
   public emptyWarn:string;
+  public deletedWarn:String;
 
   constructor(
     public _tableService: TableService
@@ -35,7 +37,10 @@ export class TableComponent implements OnInit {
   deleteSeries(id){
     this._tableService.deleteTableData(id).subscribe(
       res=>{
-        console.log(res);
+        this.deletedWarn=res.message;
+        setTimeout(()=>{
+          location.reload();
+        },3000);
       },err=>{
         console.log(<any>err);
       }

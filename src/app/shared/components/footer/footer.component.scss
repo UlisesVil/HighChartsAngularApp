@@ -1,5 +1,27 @@
 footer{
   padding: 5px;
-  background-color: rgba(0, 0, 0, 0.199);
-  color: whitesmoke;
+  background-color: rgba(0,0,0,0.877);
+
+  .footer{
+    color: yellowgreen;
+    text-align: right;
+    font-size: 10px;
+
+    span{
+      color: yellowgreen;
+      text-align: right;
+
+      a{
+        color: whitesmoke;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media screen and (max-width:420px){
+    .footer{
+      text-align: left;
+    }
+  }
+
 }

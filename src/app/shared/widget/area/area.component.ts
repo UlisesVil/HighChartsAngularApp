@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MainchartService } from '../../../services/mainchart.service'
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
-import { MainchartService } from '../../../services/mainchart.service'
 import theme from 'highcharts/themes/dark-unica';
 
 @Component({
@@ -10,74 +10,62 @@ import theme from 'highcharts/themes/dark-unica';
   styleUrls: ['./area.component.scss']
 })
 export class AreaComponent implements OnInit {
-  public title:String;
+
   @Output() dataLabelsId: EventEmitter<any> = new EventEmitter();
   @Output() dataSeries: EventEmitter<any>  = new EventEmitter();
-
-  data=[];
+  public title:String;
+  public data=[];
   public chartOptions:{};
   public Highcharts= Highcharts;
   public labelsData:any;
-  //data:any;
 
   constructor(
     public _mainchartService: MainchartService
   ) { }
 
-
   ngOnInit(): void {
-
-
     this.getMainChartInfo();
     theme(Highcharts);
-
   }
 
   getMainChartInfo(){
-
     this._mainchartService.getBigChartLabels().subscribe(
       res=>{
-        console.log(res.data);
-        console.log(res);
-
         if(res.data[0]!=undefined){
           this.labelsData=res.data[0];
           this.dataLabelsId.emit(res.data[0]);
           let dataId=res.data[0]._id;
-
           this._mainchartService.getAlldata(dataId).subscribe(
             res=>{
-              console.log(res);
               let data=[];
-              res.data.forEach(async element => {
-                await data.push({
+              res.data.forEach(element => {
+                data.push({
                 name:element.name,
                 data:JSON.parse(element.data)
-                })
+                });
               });
               this.setOptions(data,res.labels);
-              console.log(JSON.stringify(data[0].data));
               let dataDB=[];
-              res.data.forEach(async element => {
-                await dataDB.push({
+              res.data.forEach(element => {
+                dataDB.push({
                   serieId:element._id,
                   name:element.name,
                   data:element.data
-                })
+                });
               });
               this.dataSeries.emit(dataDB);
-              console.log(dataDB);
             },err=>{
               console.log(<any>err);
             }
           );
         }
-      },err=>{
+      },
+      err=>{
         console.log(<any>err);
       }
     );
 
-    HC_exporting(Highcharts); //this adds export Options (save)
+    HC_exporting(Highcharts);
     setTimeout(()=>{
       window.dispatchEvent(
         new Event('resize')
@@ -85,23 +73,21 @@ export class AreaComponent implements OnInit {
     },300);
   }
 
-
   setOptions(data?:any,labels?:any){
-
     this.chartOptions= {
-      // colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
-      //   return {
-      //       radialGradient: {
-      //           cx: 0.5,
-      //           cy: 0.3,
-      //           r: 0.7
-      //       },
-      //       stops: [
-      //           [0, color],
-      //           [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
-      //       ]
-      //   };
-      // }),
+      colors: Highcharts.getOptions().colors.map(function(color) {
+        return {
+          radialGradient: {
+            cx: 0.5,
+            cy: 0.3,
+            r: 0.7
+          },
+          stops: [
+            [0, color],
+            [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
+          ]
+        };
+      }),
       chart: {
         type: 'area'
       },
@@ -112,8 +98,8 @@ export class AreaComponent implements OnInit {
         text: labels.subTitle
       },
       xAxis: {
-        //categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
-        //tickmarkPlacement: 'on',
+        //categories: ['enero', '1800', '1850', '1900', '1950', '1999', '2050'],
+        tickmarkPlacement: 'on',
         title: {
         text: labels.labelXAxis
         }
@@ -130,27 +116,15 @@ export class AreaComponent implements OnInit {
       },
       tooltip: {
         split: true,
-        valueSuffix: labels.toolTip
+        valueSuffix: ' - '+labels.toolTip
       },
-      // plotOptions: {
-      //     area: {
-      //         stacking: 'normal',
-      //         lineColor: '#666666',
-      //         lineWidth: 1,
-      //         marker: {
-      //             lineWidth: 1,
-      //             lineColor: '#666666'
-      //         }
-      //     }
-      // },
-      credits:{  //added
+      credits:{
         enabled:false
       },
-      exporting:{ //added
+      exporting:{
         enabled:true
       },
       series: data
     };
-
   }
 }

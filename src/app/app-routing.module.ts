@@ -7,8 +7,6 @@ import { SetdataComponent } from './modules/setdata/setdata.component';
 import { PieSetdataComponent } from './modules/pie-setdata/pie-setdata.component';
 import { TableSetdataComponent } from './modules/table-setdata/table-setdata.component';
 
-
-
 const routes: Routes = [
   {path:'', component: DefaultComponent,
     children:[

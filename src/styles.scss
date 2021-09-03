@@ -1,17 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-
 html, body {
   height: 100%;
 
  }
-body {
+
+ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: rgba(0, 0, 0, 0);
-
 }
-
-
 
 .mat-drawer-content{
   background: #313131;
@@ -23,6 +19,33 @@ body {
   background: #313131;
   color: whitesmoke;
 }
+
+/*ScrollBar*/
+::-webkit-scrollbar-corner {
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 20px;
+  background: #2c2b2b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(99, 133, 32);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: yellowgreen;
+  border-radius: 20px;
+}
+
 
 
 

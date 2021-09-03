@@ -1,4 +1,6 @@
-<highcharts-chart class="pieContainer"
+<highcharts-chart
+  class="pieContainer"
+  *ngIf="chartOptions"
   [Highcharts]="Highcharts"
   [options]="chartOptions"
   style="width: 100%;  display: block;"

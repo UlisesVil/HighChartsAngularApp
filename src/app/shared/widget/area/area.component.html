@@ -1,18 +1,8 @@
 <div>{{title}}</div>
 
 <highcharts-chart
+  *ngIf="chartOptions"
   [Highcharts]="Highcharts"
   [options]="chartOptions"
   style="width: 100%; height: 400px; display: block;"
 ></highcharts-chart>
-
-
-
-<!--
-  [constructorType]="chartConstructor"
-  [callbackFunction]="chartCallback"
-
-  [(update)]="updateFlag"
-  [oneToOne]="oneToOneFlag"
-  [runOutsideAngular]="runOutsideAngularFlag"
--->

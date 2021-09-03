@@ -13,31 +13,28 @@ export class CardComponent implements OnInit {
   @Input() average: number;
   @Input() percentage: number;
   @Input() target: number;
-
-  Highcharts=Highcharts;
-  chartOptions={};
-
   @Input() data:[];
+
+  public Highcharts=Highcharts;
+  public chartOptions={};
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.data);
-
     this.chartOptions={
-      colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
+      colors: Highcharts.getOptions().colors.map(function(color) {
         return {
-            radialGradient: {
-                cx: 0.5,
-                cy: 0.3,
-                r: 0.7
-            },
-            stops: [
-                [0, color],
-                [1, Highcharts.color(color).brighten(-0.5).get('rgb')] // darken
-            ]
+          radialGradient: {
+            cx: 0.5,
+            cy: 0.3,
+            r: 0.7
+          },
+          stops: [
+            [0, color],
+            [1, Highcharts.color(color).brighten(-0.5).get('rgb')] // darken
+          ]
         };
-    }),
+      }),
       chart: {
         type: 'area',
         backgroundColor: null,
@@ -76,27 +73,15 @@ export class CardComponent implements OnInit {
       tooltip: {
         split: false,
         outside:false
-        //valueSuffix: ' millions'
       },
       leyend:{
         enabled: false
       },
-      // plotOptions: {
-      //     area: {
-      //         stacking: 'normal',
-      //         lineColor: '#666666',
-      //         lineWidth: 1,
-      //         marker: {
-      //             lineWidth: 1,
-      //             lineColor: '#666666'
-      //         }
-      //     }
-      // },
-      credits:{  //added
+      credits:{
         enabled:false
       },
-      exporting:{ //added
-        enabled: false
+      exporting:{
+        enabled: true
       },
       legend:{
         enabled:false
@@ -105,15 +90,13 @@ export class CardComponent implements OnInit {
         name: this.label,
         data: this.data
       }]
-
     }
-    HC_exporting(this.Highcharts);
 
+    HC_exporting(this.Highcharts);
     setTimeout(()=>{
       window.dispatchEvent(
         new Event('resize')
       );
     },300);
   }
-
 }

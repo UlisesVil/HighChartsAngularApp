@@ -4,22 +4,20 @@
     <h4>target {{target}}</h4>
   </div>
   <hr>
-
   <div class="stadistics">
-    <span class="numberTarget" [style.color]="percentage < 100? 'red': 'yellowgreen'">
+    <div class="numberTarget" [style.color]="percentage < 100? 'red': 'yellowgreen'">
       {{percentage}}<span class="textTarget">% of target </span>
-    </span>
+    </div>
 
-    <span class="numAverage">
+    <div class="numAverage">
       {{average}}
       <span class="textAverage">
         Average
         <mat-icon *ngIf="average<target" class="down">trending_down</mat-icon>
         <mat-icon *ngIf="average>target" class="up">trending_up</mat-icon>
       </span>
-    </span>
+    </div>
   </div>
-
 </div>
 
 <div class="widget">

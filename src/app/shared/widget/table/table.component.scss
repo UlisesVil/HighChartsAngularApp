@@ -1,29 +1,40 @@
 .tableContainer{
   min-width: 250px;
-  margin-top: 20px;
   height: fit-content;
-  box-shadow: 0px 0px 10px 2px black;
+  margin-top: 20px;
   margin-bottom: 50px;
+  box-shadow: 0px 0px 10px 2px black;
 
   .emptyWarn{
     color: yellowgreen;
   }
 
+  .deletedWarn{
+    color: rgb(221, 0, 0);
+    text-align: center;
+    margin-top: 10px;
+  }
+
   table {
     width: 100%;
     background: #313131;
+
     th{
       color: whitesmoke;
     }
+
     td{
       position: relative;
       color: whitesmoke;
-      //border:1px solid red;
 
       .fa-trash{
         position: absolute;
-        color:rgb(170, 0, 0);
         right: 10px;
+        color:rgb(170, 0, 0);
+      }
+      .fa-trash:hover{
+        color: rgb(247, 0, 0);
+        text-shadow: 0px 0px 10px rgb(109, 226, 0);
       }
     }
   }
@@ -32,10 +43,10 @@
     background: #313131;
     color: whitesmoke;
 
-
     ::ng-deep .mat-paginator-page-size-select {
       width: 27px!important;
     }
+
     ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
         background-color: #0071c2;
     }
@@ -43,19 +54,21 @@
     ::ng-deep .mat-select-value {
       color: #0071c2;
       font-weight: bold;
-      font-size: 15px;
-      padding-right: 30px;
+      font-size: 13px;
+      padding-right: 15px;
     }
+
     ::ng-deep .mat-select-arrow {
       color: #0071c2;
     }
+
     ::ng-deep .mat-option{
       padding: 0!important;
 
     }
+
     ::ng-deep .mat-option-text {
       text-align: right;
     }
-
   }
 }

@@ -1,5 +1,4 @@
 .info{
-  //background: black;
   .main{
     display: flex;
     flex-direction: row;
@@ -26,6 +25,7 @@
 
     .numberTarget{
       font-size: 30px;
+
       .textTarget{
         font-size: 15px;
       }
@@ -33,18 +33,20 @@
 
     .numAverage{
       font-size: 30px;
+
       .textAverage{
         font-size: 15px;
+
         .up{
           color: yellowgreen;
         }
+
         .down{
           color: rgb(255, 0, 0);
         }
       }
     }
   }
-
 
   .mat-icon,
   .description{

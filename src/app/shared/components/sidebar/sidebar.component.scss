@@ -14,9 +14,17 @@
   padding: 0 20px 20px 20px;
 
   img{
-    width: 100px;
-    height: 100px;
+    width: 150px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 10px;
   }
+}
+
+.subH{
+  color:yellowgreen !important;
+  text-shadow: 2px 2px 2px black;
+}
+a:hover{
+  color: yellowgreen;
+  text-shadow: 2px 2px 2px black;
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -9,16 +10,16 @@ import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { RouterModule } from '@angular/router';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { HeaderComponent } from '../shared/components/header/header.component';
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { SidebarComponent } from '../shared/components/sidebar/sidebar.component';
 import { AreaComponent } from './widget/area/area.component';
-import { HighchartsChartModule } from 'highcharts-angular';
 import { CardComponent } from './widget/card/card.component';
 import { PieComponent } from './widget/pie/pie.component';
 import { TableComponent } from './widget/table/table.component';
+
 
 @NgModule({
   declarations: [

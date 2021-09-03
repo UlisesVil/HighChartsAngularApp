@@ -17,6 +17,9 @@
 </form>
 
 <form class="tableDataForm" #tableDataForm='ngForm' (ngSubmit)="onsubmitDataTable(tableDataForm)" *ngIf="idLabel">
+  <div class="savedWarn" *ngIf="savedWarn">
+    {{savedWarn}}
+  </div>
   <div class="groupContent">
     <div class="group">
       <label for="dataH1">Value H1:</label>

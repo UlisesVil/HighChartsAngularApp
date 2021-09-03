@@ -37,7 +37,6 @@ export class PiechartService {
   }
 
   getAllpiedata(dataId):Observable<any>{
-    console.log(dataId);
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.get(this.url+'getAllpiedata/'+dataId,{headers:headers});
   }
