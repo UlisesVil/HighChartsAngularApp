@@ -2,13 +2,7 @@ import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/cor
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { TableService } from '../../../services/table.service';
-
-export interface PeriodicElement {
-  dataH1: string;
-  position: number;
-  dataH2: string;
-  dataH3: string;
-}
+import { TableDataInterface } from '../../../interfaces/tabledata-interface';
 
 @Component({
   selector: 'app-widget-table',
@@ -20,10 +14,10 @@ export class TableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   public displayedColumns: string[] = ['position', 'dataH1', 'dataH2', 'dataH3'];
-  public ELEMENT_DATA: PeriodicElement[];
+  public ELEMENT_DATA: TableDataInterface[];
   public dataSource:any;
   public labelsData:any;
-  public emptyWarn:string;
+  public emptyWarn:String;
   public deletedWarn:String;
 
   constructor(
@@ -70,7 +64,7 @@ export class TableComponent implements OnInit {
                 )
               });
               this.ELEMENT_DATA=data;
-              this.dataSource = new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
+              this.dataSource = new MatTableDataSource<TableDataInterface>(this.ELEMENT_DATA);
               this.dataSource.paginator = this.paginator;
             },
             err=>{
