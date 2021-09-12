@@ -1,26 +1,15 @@
 <mat-toolbar >
   <mat-toolbar-row>
-
-    <img src="assets/icons/graphIcon01.jpg" alt="logo">
-
     <button mat-icon-button (click)="toggleSideBar()">
       <mat-icon>menu</mat-icon>
     </button>
 
-    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-      <ul fxLayout="row" fxLayoutGap="20px">
-        <li>
-          <button mat-icon-button>
-            <mat-icon>settings</mat-icon>
-          </button>
-        </li>
-        <li>
-          <button mat-icon-button>
-            <mat-icon>help_outline</mat-icon>
-          </button>
-        </li>
-      </ul>
-    </div>
+    <img
+      src="assets/icons/graphIcon01.jpg"
+      routerLink="/"
+      title="Dashboard"
+      alt="logo"
+    >
 
   </mat-toolbar-row>
 </mat-toolbar>

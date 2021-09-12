@@ -12,7 +12,8 @@ export class TableSetdataComponent {
   public tableDataLine:TableDataModel;
   public tableLabels:any;
   public idLabel:String;
-  public savedWarn:String;
+  public savedLabelsWarn:String;
+  public savedDataWarn:String;
 
   constructor(
     private _tableService: TableService
@@ -36,10 +37,10 @@ export class TableSetdataComponent {
     if(this.idLabel!=undefined){
       this._tableService.updateTableLabels(this.tableLabelLine).subscribe(
         response=>{
-          this.savedWarn=response.message;
+          this.savedLabelsWarn=response.message;
           setTimeout(()=>{
             location.reload();
-          },3000);
+          },1000);
       },err=>{
         console.log(<any>err);
       });
@@ -47,10 +48,10 @@ export class TableSetdataComponent {
       this.tableLabelLine.idLabel=this.idLabel;
       this._tableService.saveTableLabels(this.tableLabelLine).subscribe(
         response=>{
-          this.savedWarn=response.message;
+          this.savedLabelsWarn=response.message;
           setTimeout(()=>{
             location.reload();
-          },3000);
+          },1000);
         },
         err=>{
           console.log(<any>err);
@@ -63,10 +64,10 @@ export class TableSetdataComponent {
     this.tableDataLine.tableLabelId=this.idLabel;
     this._tableService.saveTableData(this.tableDataLine).subscribe(
       response=>{
-        this.savedWarn=response.message;
+        this.savedDataWarn=response.message;
           setTimeout(()=>{
             location.reload();
-          },3000);
+          },1000);
       },err=>{
         console.log(<any>err);
       }

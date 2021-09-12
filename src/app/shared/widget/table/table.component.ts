@@ -17,8 +17,9 @@ export class TableComponent implements OnInit {
   public ELEMENT_DATA: TableDataInterface[];
   public dataSource:any;
   public labelsData:any;
-  public emptyWarn:String;
   public deletedWarn:String;
+  public findLocation:number;
+  public findLocationTrash:number;
 
   constructor(
     public _tableService: TableService
@@ -34,11 +35,22 @@ export class TableComponent implements OnInit {
         this.deletedWarn=res.message;
         setTimeout(()=>{
           location.reload();
-        },3000);
-      },err=>{
+        },1000);
+      },
+      err=>{
         console.log(<any>err);
       }
     );
+  }
+
+  locationEmptyWarn(){
+    let location=window.location.href;
+    this.findLocation=location.search('table-setdata');
+  }
+
+  locationTrash(){
+    let location=window.location.href;
+    this.findLocationTrash=location.search('table-setdata');
   }
 
   getTableInfo(){
@@ -66,13 +78,14 @@ export class TableComponent implements OnInit {
               this.ELEMENT_DATA=data;
               this.dataSource = new MatTableDataSource<TableDataInterface>(this.ELEMENT_DATA);
               this.dataSource.paginator = this.paginator;
+              this.locationTrash();
             },
             err=>{
               console.log(<any>err);
             }
           );
         }else{
-          this.emptyWarn='Por favor Guarda los encabezados rimero para poder capturar valores en la tabla'
+          this.locationEmptyWarn();
         }
       },
       err=>{

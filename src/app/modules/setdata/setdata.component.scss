@@ -9,6 +9,9 @@
 
   .savedWarn{
     color: yellowgreen;
+    text-align: center;
+    font-size: 12px;
+    padding: 5px 5px;
   }
 
   .dataContainer{
@@ -19,6 +22,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 
     .formContainer{
       width: 30%;
@@ -69,6 +73,10 @@
             outline: none;
             font-size: 12px;
           }
+
+          .spacing{
+            word-spacing: 5px;
+          }
         }
 
         input[type=submit]{
@@ -80,6 +88,40 @@
           background: yellowgreen;
           color: white;
           text-shadow: 2px 2px 2px black;
+        }
+
+        input[type=submit]:hover{
+          box-shadow: 0px 0px 10px 2px yellowgreen;
+          text-shadow: none;
+        }
+
+        input[type=submit]:active{
+          box-shadow: none;
+        }
+
+        .instructions{
+          width: 100%;
+          margin-top: 10px;
+          padding: 5px;
+          border-radius: 5px;
+          border: 1px solid yellowgreen;
+          box-sizing: border-box;
+
+          ol{
+            padding: 5px 5px 5px 20px;
+
+            li{
+              text-align: justify;
+              font-size: 12px;
+              margin: 0;
+              margin-bottom: 10px;
+
+              .spacing{
+                word-spacing: 5px;
+                font-size: 12px;
+              }
+            }
+          }
         }
 
         @media screen and (max-width:620px){
@@ -97,6 +139,7 @@
           }
         }
       }
+
       @media screen and (max-width:620px){
         .formLabel{
           margin: 0;
@@ -109,20 +152,46 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 200px;
-        padding: 20px;
+        min-width: 200px;
         margin: 20px 10px;
+        padding: 20px 40px;
         border-radius: 5px;
         box-shadow: 0px 0px 10px 2px black;
+        box-sizing: border-box;
 
-        input[type=text],
-        input[type=number]{
-          background: transparent;
-          color: whitesmoke;
-          border: none;
-          border-bottom: 1px solid yellowgreen;
+        .group{
+          display: flex;
+          flex-direction: row;
+          font-size: 12px;
+          flex-wrap: nowrap;
+
+          label{
+            width: 80px;
+            display: flex;
+            align-items: flex-end;
+            margin: 0;
+            padding: 0;
+          }
+
+          input[type=text],
+          input[type=number]{
+            margin-top: 10px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid yellowgreen;
+            outline: none;
+            color: whitesmoke;
+            font-size: 12px;
+          }
+
+          .spacing{
+            word-spacing: 5px;
+          }
+        }
+
+        .form_error{
           margin-top: 10px;
-          outline: none;
+          color: red;
           font-size: 12px;
         }
 
@@ -137,6 +206,40 @@
           text-shadow: 2px 2px 2px black;
         }
 
+        input[type=submit]:hover{
+          box-shadow: 0px 0px 10px 2px yellowgreen;
+          text-shadow: none;
+        }
+
+        input[type=submit]:active{
+          box-shadow: none;
+        }
+
+        input[type=submit]:disabled{
+          background: rgba(10, 10, 10, 0.274);
+          color: rgb(133, 133, 133);
+          box-shadow: none;
+        }
+
+        .instructions{
+          width: 100%;
+          margin-top: 10px;
+          padding: 5px;
+          border: 1px solid yellowgreen;
+          border-radius: 5px;
+          box-sizing: border-box;
+
+          p{
+            text-align: center;
+            font-size: 12px;
+            margin: 0;
+
+          }
+
+          .spacing{
+            word-spacing: 5px;
+          }
+        }
       }
 
       @media screen and (max-width:620px){
@@ -159,7 +262,7 @@
       justify-content: center;
       align-self: flex-start;
       flex-wrap: wrap;
-      flex-direction: row;
+      flex-direction: column;
       min-width: 250px;
       width: 45%;
       height: fit-content;
@@ -168,11 +271,14 @@
 
       h3{
         margin: 0 0 10px;
+        align-self: center;
       }
 
       .deleteWarn{
         color: red;
         font-size: 12px;
+        display: block;
+        align-self: center;
       }
 
       .dataSeries{

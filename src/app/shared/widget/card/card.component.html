@@ -5,16 +5,26 @@
   </div>
   <hr>
   <div class="stadistics">
-    <div class="numberTarget" [style.color]="percentage < 100? 'red': 'yellowgreen'">
-      {{percentage}}<span class="textTarget">% of target </span>
+    <div
+      class="numberTarget"
+      [style.color]="percentage < 100? 'red': 'yellowgreen'"
+    >
+      {{percentage}}
+      <span class="textTarget">
+        % of target
+      </span>
     </div>
 
     <div class="numAverage">
       {{average}}
       <span class="textAverage">
         Average
-        <mat-icon *ngIf="average<target" class="down">trending_down</mat-icon>
-        <mat-icon *ngIf="average>target" class="up">trending_up</mat-icon>
+        <mat-icon *ngIf="average<target" class="down">
+          trending_down
+        </mat-icon>
+        <mat-icon *ngIf="average>target" class="up">
+          trending_up
+        </mat-icon>
       </span>
     </div>
   </div>
@@ -27,24 +37,3 @@
     style="width: 100%; height: 80px; display: block;"
   ></highcharts-chart>
 </div>
-
-
-
-
-
-
-
-
-<!--
- -->
-
-
-<!--
-  [constructorType]="chartConstructor"
-  [callbackFunction]="chartCallback"
-
-  [(update)]="updateFlag"
-  [oneToOne]="oneToOneFlag"
-  [runOutsideAngular]="runOutsideAngularFlag"
--->
-

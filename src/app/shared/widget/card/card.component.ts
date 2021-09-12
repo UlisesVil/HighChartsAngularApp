@@ -14,7 +14,6 @@ export class CardComponent implements OnInit {
   @Input() percentage: number;
   @Input() target: number;
   @Input() data:[];
-
   public Highcharts=Highcharts;
   public chartOptions={};
 
@@ -22,7 +21,7 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.chartOptions={
-      colors: Highcharts.getOptions().colors.map(function(color) {
+      colors: Highcharts.getOptions().colors.map(function(color){
         return {
           radialGradient: {
             cx: 0.5,

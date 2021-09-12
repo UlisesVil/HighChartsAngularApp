@@ -1,14 +1,29 @@
 <div class="area">
-  <app-widget-area ></app-widget-area>
+  <app-widget-area></app-widget-area>
 </div>
 
 <br>
   <mat-divider></mat-divider>
 <br>
 
+<div class="emptychart" *ngIf="!showdefault && findLocation==-1">
+  <p>
+    Add some data to main chart to see some individual stadistics for each data serie as average, tendency, value target and percentage of completion of target, you can add some data
+    <a routerLink="/setdata"> here!!!</a>
+  </p>
+  <p>This is just an example:</p>
+  <img src="assets/icons/card.jpg" alt="Sample Chart">
+</div>
+
 <div  fxLayout="row wrap" fxLayoutAlign="center" class="stats-cards" >
   <mat-card *ngFor="let item of cards" fxFlex="23">
-    <app-widget-card [label]="item.name" [average]="item.average" [percentage]="item.targetPercentage" [data]="item.data" [target]="item.target"></app-widget-card>
+    <app-widget-card
+      [label]="item.name"
+      [average]="item.average"
+      [percentage]="item.targetPercentage"
+      [data]="item.data"
+      [target]="item.target">
+    </app-widget-card>
   </mat-card>
 </div>
 
@@ -16,7 +31,9 @@
   <mat-divider></mat-divider>
 <br>
 
-<app-widget-pie></app-widget-pie>
+<div class="pie">
+  <app-widget-pie></app-widget-pie>
+</div>
 
 <br>
   <mat-divider></mat-divider>

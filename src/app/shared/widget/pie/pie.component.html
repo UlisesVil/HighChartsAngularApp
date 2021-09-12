@@ -1,3 +1,26 @@
+<div class="emptychart" *ngIf="!chartOptions && findLocation>-1">
+  <p>
+    <i class="fas fa-exclamation-triangle"></i>
+     Please add some data to show a chart in this section
+  </p>
+  <p class="exampleText">
+    This is just an example:
+  </p>
+  <img src="assets/icons/piesample.jpg" alt="Sample Chart">
+</div>
+<div class="emptychart" *ngIf="!chartOptions && findLocation==-1">
+  <p class="exampleText">
+    To show the Pie Chart, you have to add some data first,
+    you can do it in the Tools Secction and Pie Set Data option
+    in the side bar or click
+    <a routerLink="/pie-setdata"> here!!!</a>
+  </p>
+  <p class="exampleText">
+    This is just an example:
+  </p>
+  <img src="assets/icons/piesample.jpg" alt="Sample Chart">
+</div>
+
 <highcharts-chart
   class="pieContainer"
   *ngIf="chartOptions"

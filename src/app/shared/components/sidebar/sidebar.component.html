@@ -4,19 +4,45 @@
       <h2>Presentation</h2>
       <h4>Financial Statement</h4>
     </div>
-    <img src="assets/icons/presentation.jpg" alt="">
+    <img src="assets/icons/presentation.jpg" alt="logo">
   </div>
 
   <mat-divider></mat-divider>
 
   <div class="subH" matSubheader>Pages</div>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/" >Dashboard</a>
+  <a
+    mat-list-item routerLinkActive="list-item-active"
+    routerLink="/"
+    (click)="toggleSideBar()"
+  >
+    Dashboard
+  </a>
 
   <mat-divider></mat-divider>
 
-  <div class="subH" matSubheader>Tools</div>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/setdata" >Main Chart Set Data</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/pie-setdata" >Pie Set Data</a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/table-setdata" >Table Set Data</a>
-
+  <div class="subH" matSubheader>
+    Tools
+  </div>
+  <a
+    mat-list-item
+    routerLinkActive="list-item-active"
+    routerLink="/setdata"
+    (click)="toggleSideBar()"
+  >
+    Main Chart Set Data
+  </a>
+  <a
+    mat-list-item routerLinkActive="list-item-active"
+    routerLink="/pie-setdata"
+    (click)="toggleSideBar()"
+  >
+    Pie Chart Set Data
+  </a>
+  <a
+    mat-list-item routerLinkActive="list-item-active"
+    routerLink="/table-setdata"
+    (click)="toggleSideBar()"
+  >
+    Table Set Data
+  </a>
 </mat-nav-list>

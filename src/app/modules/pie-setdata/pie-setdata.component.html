@@ -1,31 +1,89 @@
 <div class="wrapper">
   <div class="formContainer">
     <form class="labelsForm" #setPieLabels="ngForm"  (ngSubmit)="onSubmitLabels(setPieLabels)">
-      <div class="group">
-        <label for="title">Chart Title: </label>
-        <input type="text" name="title" #title="ngModel" [(ngModel)]="pieChartLabels.title">
+      <div class="savedWarn" *ngIf="savedLabelsWarn">
+        {{savedLabelsWarn}}
       </div>
-      <div class="group">
-        <label for="valueSufix">Value Suffix: </label>
-        <input type="text" name="valueSufix" #valueSufix="ngModel" [(ngModel)]="pieChartLabels.valueSufix">
+
+      <div class="groupContent">
+        <div class="group">
+          <label for="title">Chart Title: </label>
+          <input
+            type="text"
+            name="title"
+            #title="ngModel"
+            [(ngModel)]="pieChartLabels.title"
+            maxlength="25"
+          >
+        </div>
+        <div class="group">
+          <label for="valueSufix">Value Suffix: </label>
+          <input
+            type="text"
+            name="valueSufix"
+            #valueSufix="ngModel"
+            [(ngModel)]="pieChartLabels.valueSufix"
+            placeholder="%, km, $..."
+            maxlength="10"
+          >
+        </div>
+        <div class="group">
+          <label for="seriesName">Series Name: </label>
+          <input
+            type="text"
+            name="seriesName"
+            #seriesName="ngModel"
+            [(ngModel)]="pieChartLabels.seriesName"
+            maxlength="25"
+          >
+        </div>
       </div>
-      <div class="group">
-        <label for="seriesName">Series Name: </label>
-        <input type="text" name="seriesName" #seriesName="ngModel" [(ngModel)]="pieChartLabels.seriesName">
-      </div>
+
       <input type="submit" value="Save Labels">
     </form>
 
     <form class="dataForm" #setPieData="ngForm"  (ngSubmit)="onSubmitData(setPieData)">
-      <div class="group">
-        <label for="pieceName">Piece Name: </label>
-        <input type="text" name="pieceName" #pieceName="ngModel" [(ngModel)]="pieChartData.pieceName">
+      <div class="savedWarn" *ngIf="savedDataWarn">
+        {{savedDataWarn}}
       </div>
-      <div class="group">
-        <label for="percentage">Percentage: </label>
-        <input type="text" name="percentage" #percentage="ngModel" [(ngModel)]="pieChartData.percentage">
+
+      <div class="groupContent">
+        <div class="group">
+          <label for="pieceName">Piece Name: </label>
+          <input
+            type="text"
+            name="pieceName"
+            #pieceName="ngModel"
+            [(ngModel)]="pieChartData.pieceName"
+            maxlength="15"
+            required
+          >
+        </div>
+        <div class="group">
+          <label for="percentage">Value: </label>
+          <input
+            type="number"
+            name="percentage"
+            #percentage="ngModel"
+            [(ngModel)]="pieChartData.percentage"
+            maxlength="9"
+            required
+          >
+        </div>
       </div>
-      <input type="submit" value="Save Data">
+
+      <span class="form_error" *ngIf="pieceName.touched && !pieceName.valid ">
+        <strong>*Piece Name is required</strong>
+      </span>
+      <span class="form_error" *ngIf="percentage.touched && !percentage.valid">
+        <strong>*Value is required</strong>
+      </span>
+
+      <input
+        type="submit"
+        value="Save Data"
+        [disabled]="!setPieData.form.valid || pieChartData.percentage==''"
+      >
     </form>
 
     <div class="tableContent">
@@ -39,11 +97,14 @@
           </td>
           <td class="elemetData">
             <div class="data">
-              {{element.data}} {{pieChartLabels.valueSufix}}
+              {{element.data}} {{pieChartLabels.valueSufix}} =
+            </div>
+            <div class="percentageUnit">
+              {{(element.data*100)/totalPercentage | number: '1.1-1'}} %
             </div>
             <div class="icon">
               <i class="fas fa-trash"
-                 title="Delete this Series"
+                 title="Delete this Element"
                  (click)="deleteSeries(element.id)">
               </i>
             </div>
@@ -51,15 +112,14 @@
         </tr>
       </table>
       <div class="percentage">
-        The Percentages Sum is: {{totalPercentage}}%
-        <br>
-        <span *ngIf="totalPercentage < 100">Add more elements to complete 100%</span>
-        <span *ngIf="totalPercentage == 100" >Great!!! 100% is complete</span>
-        <span *ngIf="totalPercentage > 100">The sum of all elements is greater than 100%, delete some elements or adjust the values</span>
+        Total Sum: {{totalPercentage}} {{pieChartLabels.valueSufix}}
       </div>
     </div>
   </div>
 
-  <app-widget-pie class="pieSection" (dataSeries)="dataSeriesOutput($event)" (dataLabelsId)="getIdLabel($event)"></app-widget-pie>
-
+  <app-widget-pie
+    class="pieSection"
+    (dataSeries)="dataSeriesOutput($event)"
+    (dataLabelsId)="getIdLabel($event)">
+  </app-widget-pie>
 </div>

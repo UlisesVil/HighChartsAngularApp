@@ -6,6 +6,7 @@ export class MainChartLabelsModel{
     public labelXAxis:String,
     public labelYAxis:String,
     public toolTip:String,
+    public categories:String
   ){ }
 }
 

@@ -13,7 +13,7 @@ export class AreaComponent implements OnInit {
 
   @Output() dataLabelsId: EventEmitter<any> = new EventEmitter();
   @Output() dataSeries: EventEmitter<any>  = new EventEmitter();
-  public title:String;
+  public findLocation:Number;
   public data=[];
   public chartOptions:{};
   public Highcharts= Highcharts;
@@ -24,8 +24,14 @@ export class AreaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.location();
     this.getMainChartInfo();
     theme(Highcharts);
+  }
+
+  location(){
+    let location=window.location.href;
+    this.findLocation=location.search('setdata');
   }
 
   getMainChartInfo(){
@@ -40,8 +46,8 @@ export class AreaComponent implements OnInit {
               let data=[];
               res.data.forEach(element => {
                 data.push({
-                name:element.name,
-                data:JSON.parse(element.data)
+                  name:element.name,
+                  data:JSON.parse(element.data)
                 });
               });
               this.setOptions(data,res.labels);
@@ -74,8 +80,15 @@ export class AreaComponent implements OnInit {
   }
 
   setOptions(data?:any,labels?:any){
+    let categoriesStr=labels.categories[0].split(' ');
+    var arrCategories=[];
+    for(let i=0; i<categoriesStr.length; i++){
+      if(categoriesStr[i]!=''){
+        arrCategories.push(categoriesStr[i]);
+      }
+    }
     this.chartOptions= {
-      colors: Highcharts.getOptions().colors.map(function(color) {
+      colors: Highcharts.getOptions().colors.map(function(color){
         return {
           radialGradient: {
             cx: 0.5,
@@ -98,7 +111,7 @@ export class AreaComponent implements OnInit {
         text: labels.subTitle
       },
       xAxis: {
-        //categories: ['enero', '1800', '1850', '1900', '1950', '1999', '2050'],
+        categories: arrCategories,
         tickmarkPlacement: 'on',
         title: {
         text: labels.labelXAxis

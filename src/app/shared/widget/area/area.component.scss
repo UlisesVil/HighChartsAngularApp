@@ -1,0 +1,29 @@
+.emptychart{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p{
+    margin-top: 20px;
+    width: 50%;
+    min-width: 200px;
+    text-align: center;
+    color: yellow;
+
+    a{
+      text-decoration: none;
+      color: yellowgreen;
+    }
+  }
+
+  .exampleText{
+    color: whitesmoke;
+  }
+
+  img{
+    width: 30%;
+    min-width: 200px;
+    margin-bottom: 20px;
+  }
+}

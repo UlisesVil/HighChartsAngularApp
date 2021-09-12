@@ -3,38 +3,143 @@
     <div class="formContainer">
       <form class="formLabel" #formLabelsMainChart="ngForm" (ngSubmit)="onSubmitLabel(formLabelsMainChart)">
         <p>Chart Labels</p>
-        <div class="savedWarn" *ngIf="savedWarn">
-          {{savedWarn}}
+        <div class="savedWarn" *ngIf="savedLabelsWarn">
+          {{savedLabelsWarn}}
         </div>
         <div class="group">
           <label for="title">Chart Title:</label>
-          <input type="text" name="title" #title="ngModel" [(ngModel)]='chartLabels.title' placeholder="Chart Title">
+          <input
+            type="text"
+            name="title"
+            #title="ngModel"
+            [(ngModel)]='chartLabels.title'
+            placeholder="Chart Title"
+          >
         </div>
         <div class="group">
           <label for="subTitle">Chart Subtitle:</label>
-          <input type="text" name="subTitle" #subTitle="ngModel" [(ngModel)]='chartLabels.subTitle' placeholder="Chart Sub-Title">
+          <input
+            type="text"
+            name="subTitle"
+            #subTitle="ngModel"
+            [(ngModel)]='chartLabels.subTitle'
+            placeholder="Chart Sub-Title"
+          >
         </div>
         <div class="group">
           <label for="labelXAxis">Label X Axis:</label>
-          <input type="text" name="labelXAxis" #labelXAxis="ngModel" [(ngModel)]='chartLabels.labelXAxis' placeholder="X Label">
+          <input
+            type="text"
+            name="labelXAxis"
+            #labelXAxis="ngModel"
+            [(ngModel)]='chartLabels.labelXAxis'
+            placeholder="X Label"
+          >
         </div>
         <div class="group">
           <label for="labelYAxis">Label Y Axis:</label>
-          <input type="text" name="labelYAxis" #labelYAxis="ngModel" [(ngModel)]='chartLabels.labelYAxis' placeholder="Y Label">
+          <input
+            type="text"
+            name="labelYAxis"
+            #labelYAxis="ngModel"
+            [(ngModel)]='chartLabels.labelYAxis'
+            placeholder="Y Label"
+          >
         </div>
         <div class="group">
           <label for="toolTip">Tooltip:</label>
-          <input type="text" name="toolTip" #toolTip="ngModel" [(ngModel)]='chartLabels.toolTip' placeholder="Value Label">
+          <input
+            type="text"
+            name="toolTip"
+            #toolTip="ngModel"
+            [(ngModel)]='chartLabels.toolTip'
+            placeholder="Value Label"
+          >
+        </div>
+        <div class="group">
+          <label for="categories">Categories:</label>
+          <input
+            type="text"
+            class="spacing"
+            name="categories"
+            #categories="ngModel"
+            [(ngModel)]='chartLabels.categories'
+            placeholder="January February March"
+          >
         </div>
         <input type="submit" value="Save Labels">
+        <div class="instructions">
+          Notes:
+          <ol>
+            <li>Categories Values ​​must be written separated by space
+              <br>
+              <span class="spacing">Example: January February March</span>
+            </li>
+            <li>You can leave blank the field you don't need</li>
+          </ol>
+        </div>
       </form>
 
       <form class="formData" #formDataMainChart="ngForm" (ngSubmit)="onSubmitData(formDataMainChart)" *ngIf="idLabel">
         <p>Chart Series Data</p>
-        <input type="text" name="seriesName" #seriesName="ngModel" [(ngModel)]='chartData.seriesName' placeholder="Serie's Name">
-        <input type="text" name="data" #data="ngModel" [(ngModel)]='chartData.data' placeholder="Serie's Value">
-        <input type="Number" name="target" #target="ngModel" [(ngModel)]='chartData.target' placeholder="Serie's Target">
-        <input type="submit" value="Save Series">
+        <div class="savedWarn" *ngIf="savedDataWarn">
+          {{savedDataWarn}}
+        </div>
+
+        <div class="group">
+          <label for="seriesName">Serie's Name:</label>
+          <input
+            type="text"
+            name="seriesName"
+            #seriesName="ngModel"
+            [(ngModel)]='chartData.seriesName'
+            placeholder=""
+            required
+          >
+        </div>
+        <div class="group">
+          <label for="data">Serie's Values:</label>
+          <input
+            class="spacing"
+            type="text"
+            name="data"
+            #data="ngModel"
+            [(ngModel)]='chartData.data'
+            placeholder="0123 4567 8910"
+            (keypress)="charFilter($event)"
+            required>
+        </div>
+        <div class="group">
+          <label for="target">Serie's Target:</label>
+          <input
+            type="Number"
+            name="target"
+            #target="ngModel"
+            [(ngModel)]='chartData.target'
+            placeholder=""
+            required
+          >
+        </div>
+
+        <span class="form_error" *ngIf="seriesName.touched && !seriesName.valid ">
+          <strong>*Serie's Name is required</strong>
+        </span>
+        <span class="form_error" *ngIf="data.touched && !data.valid">
+          <strong>*Serie's Values is required</strong>
+        </span>
+        <span class="form_error" *ngIf="target.touched && !target.valid">
+          <strong>*Serie's Target is required</strong>
+        </span>
+
+        <input
+          type="submit"
+          value="Save Series"
+          [disabled]="!formDataMainChart.form.valid || chartData.seriesName==''"
+        >
+        <div class="instructions">
+          <p>Note: Serie's Values ​​must be written without commas or any other symbol, only period is allowed and values must be separated by space.</p>
+          <p class="spacing">Example: 123  4567  789.1</p>
+        </div>
       </form>
     </div>
 
@@ -44,7 +149,12 @@
       <div class="dataSeries" *ngIf='dataSeries'>
         <div class="series" *ngFor='let item of dataSeries'>
           <div class="block">
-            <i class="fas fa-trash" title="Delete this Series" (click)="deleteSeries(item.id)"></i>
+            <i
+              class="fas fa-trash"
+              title="Delete this Series"
+              (click)="deleteSeries(item.id)"
+            >
+            </i>
             <div class="seriesName">{{item.name}}</div>
             <div class="seriesValue">{{item.data}}</div>
           </div>
@@ -53,6 +163,10 @@
     </div>
   </div>
 
-  <app-widget-area (dataSeries)="dataSeriesOutput($event)" (dataLabelsId)="getIdLabel($event)" ></app-widget-area>
+  <app-widget-area
+    (dataSeries)="dataSeriesOutput($event)"
+    (dataLabelsId)="getIdLabel($event)"
+  >
+  </app-widget-area>
 
 </div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
+
 .info{
   .main{
     display: flex;
@@ -10,11 +12,14 @@
     h3{
       margin: 0;
       line-height: 2px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: bolder;
     }
 
     h4{
       margin: 0;
-      color: gray;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: bolder;
     }
   }
 
@@ -25,17 +30,23 @@
 
     .numberTarget{
       font-size: 30px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: bolder;
 
       .textTarget{
         font-size: 15px;
+        font-family: 'Rajdhani', sans-serif;
       }
     }
 
     .numAverage{
       font-size: 30px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: bolder;
 
       .textAverage{
         font-size: 15px;
+        font-family: 'Rajdhani', sans-serif;
 
         .up{
           color: yellowgreen;

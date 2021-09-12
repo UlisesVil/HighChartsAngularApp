@@ -4,7 +4,6 @@
   height: 100%;
 }
 
-
 .header{
   height: 50px;
 }
@@ -16,8 +15,15 @@ mat-drawer-container{
     width: 300px;
     background: #313131;
   }
+
   mat-drawer-content{
     padding: 20px;
+  }
+
+  @media screen and(max-width:590px){
+    mat-drawer{
+      width: 100%;
+    }
   }
 }
 

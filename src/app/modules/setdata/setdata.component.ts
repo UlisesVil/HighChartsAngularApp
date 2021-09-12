@@ -10,7 +10,8 @@ import { MainchartService } from '../../services/mainchart.service';
 export class SetdataComponent {
   public chartLabels: MainChartLabelsModel;
   public chartData: MainChartDataModel;
-  public savedWarn:string;
+  public savedLabelsWarn:string;
+  public savedDataWarn:string;
   public idLabel:string;
   public dataSeries:any;
   public deleteWarn:String;
@@ -18,7 +19,7 @@ export class SetdataComponent {
   constructor(
     private _mainchartService: MainchartService
   ) {
-    this.chartLabels=new MainChartLabelsModel('','','','','','');
+    this.chartLabels=new MainChartLabelsModel('','','','','','','');
     this.chartData=new MainChartDataModel('','','','');
   }
 
@@ -28,7 +29,7 @@ export class SetdataComponent {
         this.deleteWarn=res.message;
         setTimeout(()=>{
           location.reload();
-        },3000);
+        },1000);
       },
       err=>{
         console.log(<any>err);
@@ -64,10 +65,10 @@ export class SetdataComponent {
     if(this.idLabel!=undefined){
       this._mainchartService.updateBigChartLabels(this.chartLabels).subscribe(
         response=>{
-          this.savedWarn=response.message;
+          this.savedLabelsWarn=response.message;
           setTimeout(()=>{
             location.reload();
-          },3000);
+          },1000);
         },
         err=>{
           console.log(<any>err);
@@ -77,10 +78,10 @@ export class SetdataComponent {
       this.chartLabels.idLabel=this.idLabel;
       this._mainchartService.saveBigChartLabels(this.chartLabels).subscribe(
         response=>{
-          this.savedWarn=response.message;
+          this.savedLabelsWarn=response.message;
           setTimeout(()=>{
             location.reload();
-          },3000);
+          },1000);
         },err=>{
           console.log(<any>err);
         }
@@ -92,13 +93,17 @@ export class SetdataComponent {
     this.chartData.chartlabelId=this.idLabel;
     this._mainchartService.saveBigChartData(this.chartData).subscribe(
       response=>{
-        this.savedWarn=response.message;
+        this.savedDataWarn=response.message;
           setTimeout(()=>{
             location.reload();
-          },3000);
+          },1000);
       },err=>{
         console.log(<any>err);
       }
     );
+  }
+
+  charFilter(e){
+    return (e.charCode >= 48 && e.charCode <= 57 || e.charCode == [32] || e.charCode == 46);
   }
 }

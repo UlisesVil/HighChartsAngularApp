@@ -11,7 +11,8 @@ export class PieSetdataComponent {
   public pieChartLabels: PieChartLabelsModel;
   public pieChartData: PieChartDataModel;
   public idLabel:String;
-  public savedWarn:String;
+  public savedLabelsWarn:String;
+  public savedDataWarn:String;
   public dataSeries:any[];
   public totalPercentage:number;
   public deleteWarn:String;
@@ -19,8 +20,8 @@ export class PieSetdataComponent {
   constructor(
     private _piechartService: PiechartService
   ) {
-  this.pieChartLabels= new PieChartLabelsModel('','','','');
-  this.pieChartData= new PieChartDataModel('','','');
+    this.pieChartLabels= new PieChartLabelsModel('','','','');
+    this.pieChartData= new PieChartDataModel('','','');
   }
 
   dataSeriesOutput(e){
@@ -52,10 +53,10 @@ export class PieSetdataComponent {
     if(this.idLabel!=undefined){
       this._piechartService.updatePieChartLabels(this.pieChartLabels).subscribe(
         response=>{
-          this.savedWarn=response.message;
+          this.savedLabelsWarn=response.message;
           setTimeout(()=>{
             location.reload();
-          },3000);
+          },1000);
         },
         err=>{
         console.log(<any>err);
@@ -64,10 +65,10 @@ export class PieSetdataComponent {
       this.pieChartLabels.idLabel=this.idLabel;
       this._piechartService.savePieChartLabels(this.pieChartLabels).subscribe(
         response=>{
-          this.savedWarn=response.message;
+          this.savedLabelsWarn=response.message;
           setTimeout(()=>{
             location.reload();
-          },3000);
+          },1000);
         },
         err=>{
           console.log(<any>err);
@@ -80,10 +81,10 @@ export class PieSetdataComponent {
     this.pieChartData.chartlabelId=this.idLabel;
     this._piechartService.savePieChartData(this.pieChartData).subscribe(
       response=>{
-        this.savedWarn=response.message;
+        this.savedDataWarn=response.message;
         setTimeout(()=>{
           location.reload();
-        },3000);
+        },1000);
       },
       err=>{
         console.log(<any>err);
@@ -104,5 +105,4 @@ export class PieSetdataComponent {
       }
     );
   }
-
 }

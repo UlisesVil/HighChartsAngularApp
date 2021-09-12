@@ -6,6 +6,18 @@
   border-radius: 5px;
   box-shadow: 0px 0px 10px 2px black;
 
+  .emptyheaders{
+    color: yellow;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .savedWarn{
+    color: yellowgreen;
+    text-align: center;
+    margin-top: 10px;
+  }
+
   .groupContent{
     display: flex;
     flex-direction: row;
@@ -34,13 +46,22 @@
 
   input[type=submit]{
     width: fit-content;
-    align-self: center;
-    color: whitesmoke;
-    background: yellowgreen;
-    padding: 5px 10px;
-    margin: 20px 0 10px;
     border: none;
     border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    background: yellowgreen;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+  }
+
+  input[type=submit]:hover{
+    box-shadow: 0px 0px 10px 2px yellowgreen;
+    text-shadow: none;
+  }
+
+  input[type=submit]:active{
+    box-shadow: none;
   }
 }
 
@@ -85,14 +106,32 @@
     }
   }
 
+  .form_error{
+    margin-top: 10px;
+    color: red;
+    font-size: 12px;
+  }
+
   input[type=submit]{
     width: fit-content;
-    align-self: center;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
-    margin: 20px 0 10px;
+    margin-top: 10px;
     background: yellowgreen;
-    color: whitesmoke;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+  }
+  input[type=submit]:hover{
+    box-shadow: 0px 0px 10px 2px yellowgreen;
+    text-shadow: none;
+  }
+  input[type=submit]:active{
+    box-shadow: none;
+  }
+  input[type=submit]:disabled{
+    background: rgba(10, 10, 10, 0.274);
+    color: rgb(133, 133, 133);
+    box-shadow: none;
   }
 }

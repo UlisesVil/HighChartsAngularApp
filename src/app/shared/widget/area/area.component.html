@@ -1,4 +1,25 @@
-<div>{{title}}</div>
+<div class="emptychart" *ngIf="!chartOptions && findLocation>-1">
+  <p>
+    <i class="fas fa-exclamation-triangle"></i>
+    Please add some data to show a chart in this section.
+  </p>
+  <p class="exampleText">
+    This is just an example:
+  </p>
+  <img src="assets/icons/mainsample.jpg" alt="Sample Chart">
+</div>
+<div class="emptychart" *ngIf="!chartOptions && findLocation==-1">
+  <p class="exampleText">
+    To show the Main Chart, you have to add some data first,
+    you can do it in the Tools Secction and Main Chart Set Data option
+    in the side bar or clicking
+    <a routerLink="/setdata"> here!!!</a>
+  </p>
+  <p class="exampleText">
+    This is just an example:
+  </p>
+  <img src="assets/icons/mainsample.jpg" alt="Sample Chart">
+</div>
 
 <highcharts-chart
   *ngIf="chartOptions"

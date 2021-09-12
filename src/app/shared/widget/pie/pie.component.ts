@@ -4,7 +4,6 @@ import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
 import theme from 'highcharts/themes/dark-unica';
 
-
 @Component({
   selector: 'app-widget-pie',
   templateUrl: './pie.component.html',
@@ -18,14 +17,21 @@ export class PieComponent implements OnInit {
   public chartOptions:{};
   public Highcharts= Highcharts;
   public labelsData:any;
+  public findLocation:number;
 
   constructor(
     public _piechartService: PiechartService
   ) { }
 
   ngOnInit(): void {
-   this.getPieChartInfo();
-   theme(Highcharts);
+    this.location();
+    this.getPieChartInfo();
+    theme(Highcharts);
+  }
+
+  location(){
+    let location=window.location.href;
+    this.findLocation=location.search('pie-setdata');
   }
 
   getPieChartInfo(){
@@ -40,13 +46,12 @@ export class PieComponent implements OnInit {
               let data=[];
               res.data.forEach(element => {
                 data.push({
-                name:element.pieceName,
-                y:JSON.parse(element.percentage)
+                  name:element.pieceName,
+                  y:JSON.parse(element.percentage)
                 })
               });
               this.data=data;
               this.setOptions(data, res.labels);
-
               let dataDB=[];
               res.data.forEach(element => {
                 dataDB.push({
@@ -77,7 +82,7 @@ export class PieComponent implements OnInit {
 
   setOptions(data?:any, labels?:any){
     this.chartOptions={
-      colors: Highcharts.getOptions().colors.map(function(color) {
+      colors: Highcharts.getOptions().colors.map(function(color){
         return {
           radialGradient: {
             cx: 0.5,
@@ -117,6 +122,9 @@ export class PieComponent implements OnInit {
             connectorColor: 'silver'
           }
         }
+      },
+      credits:{
+        enabled:false
       },
       series: [{
         name: labels.seriesName,
