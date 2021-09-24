@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PieChartLabelsModel, PieChartDataModel } from '../../models/pieChartModel';
 import { PiechartService } from '../../services/piechart.service';
+import * as numeral from 'numeral';
 
 @Component({
   selector: 'app-pie-setdata',
@@ -27,20 +28,20 @@ export class PieSetdataComponent {
   dataSeriesOutput(e){
     if(e){
       let showData=[];
-      var counter=0;
+      var sum=0;
       e.forEach(element => {
         let myData=JSON.parse(element.percentage);
-        counter+=myData;
+        sum+=myData;
         showData.push(
           {
             id:element.serieId,
             name:element.pieceName,
-            data:myData
+            data:numeral(myData).format('0,0')
           }
         );
       });
       this.dataSeries=showData;
-      this.totalPercentage=counter;
+      this.totalPercentage=numeral(sum).format('0,0');
     }
   }
 

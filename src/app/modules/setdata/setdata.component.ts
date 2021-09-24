@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MainChartLabelsModel, MainChartDataModel } from '../../models/mainChartModel';
 import { MainchartService } from '../../services/mainchart.service';
+import * as numeral from 'numeral';
 
 @Component({
   selector: 'app-setdata',
@@ -42,13 +43,16 @@ export class SetdataComponent {
       let showData=[];
       e.forEach(element => {
         let myData=JSON.parse(element.data);
-        let newStr=myData.toString()
-        let strFinal=newStr.replace(/,/g,' - ');
+        myData=myData.map((element)=>{
+          return element = numeral(element).format('0,0');
+        });
+        var strFinal = myData.join('  --  ');
         showData.push(
           {
             id:element.serieId,
             name:element.name,
-            data:strFinal
+            data:strFinal,
+            target:element.target
           }
         );
       });

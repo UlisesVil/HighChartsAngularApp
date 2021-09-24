@@ -155,7 +155,10 @@
               (click)="deleteSeries(item.id)"
             >
             </i>
-            <div class="seriesName">{{item.name}}</div>
+            <div class="seriesHeader">
+              <div class="seriesName">{{item.name}}</div>
+              <div class="target">Target: <span>{{item.target}}</span></div>
+            </div>
             <div class="seriesValue">{{item.data}}</div>
           </div>
         </div>

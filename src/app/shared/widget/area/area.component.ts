@@ -3,6 +3,7 @@ import { MainchartService } from '../../../services/mainchart.service'
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
 import theme from 'highcharts/themes/dark-unica';
+import * as numeral from 'numeral';
 
 @Component({
   selector: 'app-widget-area',
@@ -53,10 +54,12 @@ export class AreaComponent implements OnInit {
               this.setOptions(data,res.labels);
               let dataDB=[];
               res.data.forEach(element => {
+                var target=numeral(element.target).format('0,0');
                 dataDB.push({
                   serieId:element._id,
                   name:element.name,
-                  data:element.data
+                  data:element.data,
+                  target:target
                 });
               });
               this.dataSeries.emit(dataDB);

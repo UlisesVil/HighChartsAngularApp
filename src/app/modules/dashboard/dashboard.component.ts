@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MainchartService } from '../../services/mainchart.service'
+import { MainchartService } from '../../services/mainchart.service';
+import * as numeral from 'numeral';
 
 @Component({
   selector: 'app-dashboard',
@@ -39,18 +40,19 @@ export class DashboardComponent implements OnInit {
           for(let i=0; i<=dataArr.length-1; i++){
             dataSum+=dataArr[i];
           }
-          let average=(dataSum/dataArr.length);
+          let average=numeral((dataSum/dataArr.length)).format('0,0');
           //Target Percentage
           let targetPercentage= parseInt(
             ((dataArr[dataArr.length-1]* 100)/element.target)
             .toFixed(2)
           );
+          var target=numeral(element.target).format('0,0');
           dataDB.push({
             name:element.name,
             data:JSON.parse(element.data),
             average:average,
             targetPercentage: targetPercentage,
-            target: element.target
+            target: target
           })
         });
         this.cards=dataDB;
