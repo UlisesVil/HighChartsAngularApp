@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1633351917438,
+  "timestamp": 1633353044824,
   "index": "https://ulisesvil.github.io/HighChartsAngularApp/index.html",
   "assetGroups": [
     {
@@ -70,7 +70,7 @@
     "https://ulisesvil.github.io/HighChartsAngularApp/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "https://ulisesvil.github.io/HighChartsAngularApp/index.html": "8e6040ed28b295bd2ef12b885d168a37853dc185",
     "https://ulisesvil.github.io/HighChartsAngularApp/main.d763f2ab33336c1338f0.js": "d292b39af4a3962b5f53abe3f97254e0a6acf97c",
-    "https://ulisesvil.github.io/HighChartsAngularApp/manifest.webmanifest": "b458576e573401663fe558c420881f4963a133d5",
+    "https://ulisesvil.github.io/HighChartsAngularApp/manifest.webmanifest": "55dfddd39e87e708e4d6f44f3c6e1fbcc83fc9c8",
     "https://ulisesvil.github.io/HighChartsAngularApp/polyfills.a4021de53358bb0fec14.js": "b47435a9ef2a4829f2f9dfd35599bde3614981b1",
     "https://ulisesvil.github.io/HighChartsAngularApp/runtime.e227d1a0e31cbccbf8ec.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "https://ulisesvil.github.io/HighChartsAngularApp/styles.8cbb6ca24f91e311ec20.css": "a65ad4c26c8fa922100f585bc9509bfc2f757f12"

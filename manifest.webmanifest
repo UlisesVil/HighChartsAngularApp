@@ -1,6 +1,6 @@
 {
-  "name": "dashboard-angular",
-  "short_name": "dashboard-angular",
+  "name": "HighCharts Angular PWA",
+  "short_name": "Charts PWA",
   "theme_color": "#313131",
   "background_color": "#313131",
   "display": "standalone",
