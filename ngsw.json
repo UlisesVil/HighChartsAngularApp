@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1633353814452,
+  "timestamp": 1634596059346,
   "index": "https://ulisesvil.github.io/HighChartsAngularApp/index.html",
   "assetGroups": [
     {
@@ -13,17 +13,21 @@
       "urls": [
         "https://ulisesvil.github.io/HighChartsAngularApp/favicon.ico",
         "https://ulisesvil.github.io/HighChartsAngularApp/index.html",
-        "https://ulisesvil.github.io/HighChartsAngularApp/main.d763f2ab33336c1338f0.js",
+        "https://ulisesvil.github.io/HighChartsAngularApp/main.7de21d399fe1612af4d3.js",
         "https://ulisesvil.github.io/HighChartsAngularApp/manifest.webmanifest",
-        "https://ulisesvil.github.io/HighChartsAngularApp/polyfills.a4021de53358bb0fec14.js",
+        "https://ulisesvil.github.io/HighChartsAngularApp/polyfills.d6e363c4d3788442fc0f.js",
         "https://ulisesvil.github.io/HighChartsAngularApp/runtime.e227d1a0e31cbccbf8ec.js",
         "https://ulisesvil.github.io/HighChartsAngularApp/styles.8cbb6ca24f91e311ec20.css"
       ],
-      "patterns": []
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/css2\\?family=IBM\\+Plex\\+Sans:wght@300;400;500;600&display=swap",
+        "https:\\/\\/unicons\\.iconscout\\.com\\/release\\/v4\\.0\\.0\\/css\\/line\\.css",
+        "https:\\/\\/kit\\.fontawesome\\.com\\/94235d9528\\.js"
+      ]
     },
     {
       "name": "assets",
-      "installMode": "lazy",
+      "installMode": "prefetch",
       "updateMode": "prefetch",
       "cacheQueryOptions": {
         "ignoreVary": true
@@ -49,7 +53,28 @@
       "patterns": []
     }
   ],
-  "dataGroups": [],
+  "dataGroups": [
+    {
+      "name": "data-api",
+      "patterns": [
+        "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getAlldata",
+        "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getMainChartLabels",
+        "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getdataCards",
+        "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getPieChartLabels",
+        "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getAllpiedata",
+        "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getTableLabels",
+        "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getAllTabledata"
+      ],
+      "strategy": "freshness",
+      "maxSize": 5,
+      "maxAge": 3000000,
+      "timeoutMs": 5000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
   "hashTable": {
     "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/appicon.jpg": "fa4f65adb35cf04872a2be2a78c5a48ce85edb75",
     "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/card.jpg": "34e1b186bba9c71644a14af89713064fe6bcf75a",
@@ -68,10 +93,10 @@
     "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/presentation.jpg": "0ce5b791925a313d3fa8c35493eaf56eb79732a2",
     "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/table.jpg": "4620de565a9aea42526f35c10ecef0acde1ad32c",
     "https://ulisesvil.github.io/HighChartsAngularApp/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://ulisesvil.github.io/HighChartsAngularApp/index.html": "9fcfa64e059064988d9ad7a1bd3f7401f8470ab4",
-    "https://ulisesvil.github.io/HighChartsAngularApp/main.d763f2ab33336c1338f0.js": "d292b39af4a3962b5f53abe3f97254e0a6acf97c",
+    "https://ulisesvil.github.io/HighChartsAngularApp/index.html": "f2931596cb4555fd37f25928a73ff1f9f9b18949",
+    "https://ulisesvil.github.io/HighChartsAngularApp/main.7de21d399fe1612af4d3.js": "46938e0f2a5d66453ecbfc9605af7dd648b483bb",
     "https://ulisesvil.github.io/HighChartsAngularApp/manifest.webmanifest": "55dfddd39e87e708e4d6f44f3c6e1fbcc83fc9c8",
-    "https://ulisesvil.github.io/HighChartsAngularApp/polyfills.a4021de53358bb0fec14.js": "b47435a9ef2a4829f2f9dfd35599bde3614981b1",
+    "https://ulisesvil.github.io/HighChartsAngularApp/polyfills.d6e363c4d3788442fc0f.js": "d0fee4aed1e5841843f11dd1898fa893c72043f4",
     "https://ulisesvil.github.io/HighChartsAngularApp/runtime.e227d1a0e31cbccbf8ec.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "https://ulisesvil.github.io/HighChartsAngularApp/styles.8cbb6ca24f91e311ec20.css": "a65ad4c26c8fa922100f585bc9509bfc2f757f12"
   },
