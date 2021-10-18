@@ -1,6 +1,6 @@
 export class PieChartLabelsModel {
   constructor(
-    public idLabel:String,
+    public _id:String,
     public title:String,
     public valueSufix:String,
     public seriesName:String

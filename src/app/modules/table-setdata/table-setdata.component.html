@@ -1,4 +1,4 @@
-<form class="tableLabelsForm" #tableLabelsForm='ngForm' (ngSubmit)="onSubmitLabelsTable(tableLabelsForm)">
+<form [formGroup]="tableLabelsForm" class="tableLabelsForm">
   <div class="emptyheaders" *ngIf="!tableLabelLine.header1 && !tableLabelLine.header2 && !tableLabelLine.header3">
     <p>
       <i class="fas fa-exclamation-triangle"></i>
@@ -9,94 +9,103 @@
     {{savedLabelsWarn}}
   </div>
   <div class="groupContent">
-    <div class="group">
-      <label for="header1">Header 1:</label>
+    <mat-form-field class="group">
+      <mat-label class="label">Header 1:</mat-label>
       <input
+        matInput
         type="text"
         name='header1'
-        #header1='ngModel'
-        [(ngModel)]="tableLabelLine.header1"
+        formControlName="header1"
       >
-    </div>
-    <div class="group">
-      <label for="header2">Header 2:</label>
+    </mat-form-field>
+    <mat-form-field class="group">
+      <mat-label class="label">Header 2:</mat-label>
       <input
+        matInput
         type="text"
         name='header2'
-        #header2='ngModel'
-        [(ngModel)]="tableLabelLine.header2"
+        formControlName="header2"
       >
-    </div>
-    <div class="group">
-      <label for="header3">Header 3:</label>
+    </mat-form-field>
+    <mat-form-field class="group">
+      <mat-label class="label">Header 3:</mat-label>
       <input
+        matInput
         type="text"
         name='header3'
-        #header3='ngModel'
-        [(ngModel)]="tableLabelLine.header3"
+        formControlName="header3"
       >
-    </div>
+    </mat-form-field>
   </div>
-  <input type="submit" value="Save Labels">
+  <button
+    class="submit"
+    mat-raised-button type="submit"
+    (click)="onSubmitLabelsTable()"
+  >
+    Save Labels
+  </button>
 </form>
 
-<form
-  class="tableDataForm"
-  #tableDataForm='ngForm'
-  (ngSubmit)="onsubmitDataTable(tableDataForm)"
-  *ngIf="idLabel"
->
+<form [formGroup]="tableDataForm" class="tableDataForm" *ngIf="idLabel">
   <div class="savedWarn" *ngIf="savedDataWarn">
     {{savedDataWarn}}
   </div>
   <div class="groupContent">
-    <div class="group">
-      <label for="dataH1">Value H1:</label>
+    <mat-form-field class="group">
+      <mat-label class="label">Value H1:</mat-label>
       <input
+        matInput
         type="text"
         name='dataH1'
-        #dataH1='ngModel'
-        [(ngModel)]="tableDataLine.dataH1"
+        formControlName="dataH1"
         required
       >
-    </div>
-    <div class="group">
-      <label for="dataH2">Value H2:</label>
+      <mat-error>
+        <span class="form_error">
+          <strong>*Value H1 is required</strong>
+        </span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="group">
+      <mat-label class="label">Value H2:</mat-label>
       <input
+        matInput
         type="text"
         name='dataH2'
-        #dataH2='ngModel'
-        [(ngModel)]="tableDataLine.dataH2"
+        formControlName="dataH2"
         required
       >
-    </div>
-    <div class="group">
-      <label for="dataH3">Value H3:</label>
+      <mat-error>
+        <span class="form_error">
+          <strong>*Value H2 is required</strong>
+        </span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="group">
+      <mat-label class="label">Value H3:</mat-label>
       <input
+        matInput
         type="text"
         name='dataH3'
-        #dataH3='ngModel'
-        [(ngModel)]="tableDataLine.dataH3"
+        formControlName="dataH3"
         required
       >
-    </div>
+      <mat-error>
+        <span class="form_error">
+          <strong>*Value H3 is required</strong>
+        </span>
+      </mat-error>
+    </mat-form-field>
   </div>
-
-  <span class="form_error" *ngIf="dataH1.touched && !dataH1.valid ">
-    <strong>*Value H1 is required</strong>
-  </span>
-  <span class="form_error" *ngIf="dataH2.touched && !dataH2.valid">
-    <strong>*Value H2 is required</strong>
-  </span>
-  <span class="form_error" *ngIf="dataH3.touched && !dataH3.valid">
-    <strong>*Value H3 is required</strong>
-  </span>
-
-  <input
+  <button
+    class="submit"
+    mat-raised-button
     type="submit"
-    value="Save Data Line"
-    [disabled]="!tableDataForm.form.valid || tableDataLine.dataH1==''|| tableDataLine.dataH2==''|| tableDataLine.dataH3==''"
+    (click)="onsubmitDataTable()"
+    [disabled]="!tableDataForm.valid"
   >
+    Save Data Line
+  </button>
 </form>
 
 <app-widget-table  (dataLabelsId)="getIdLabel($event)"></app-widget-table>

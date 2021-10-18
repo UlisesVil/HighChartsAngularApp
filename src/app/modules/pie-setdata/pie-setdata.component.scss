@@ -12,7 +12,7 @@
     gap: 20px;
     margin-bottom: 20px;
 
-    .labelsForm{
+    .formLabel{
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -31,124 +31,113 @@
       }
 
       .groupContent{
-        width: fit-content;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        align-items: center;
 
         .group{
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
           flex-wrap: wrap;
-          width: fit-content;
-          align-self: flex-end;
+          width: 90%;
           margin-top: 10px;
 
-          label{
-            margin-right: 5px;
-            font-size: 12px;
-          }
-
-          input[type=text]{
+          input:-webkit-autofill {
             border: none;
-            border-bottom:1px solid yellowgreen;
-            background: transparent;
-            color: whitesmoke;
-            font-size: 12px;
-            outline: none;
+            -webkit-text-fill-color: whitesmoke;
+            -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+            box-shadow: 0 0 0px 1000px transparent inset;
+            transition: background-color 5000s ease-in-out 0s;
           }
         }
       }
 
-      input[type=submit]{
-        width: fit-content;
-        align-self: center;
-        padding: 5px 10px;
-        margin-top: 20px;
-        border: none;
-        border-radius: 5px;
-        background: yellowgreen;
-        color: white;
-        font-size: 12px;
-      }
-    }
-
-    .dataForm{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-width: 250px;
-      width: 30%;
-      height: fit-content;
-      padding: 10px;
-      box-shadow: 0px 0px 10px 2px black;
-      border-radius: 5px;
-
-      .savedWarn{
-        color: yellowgreen;
-        font-size: 12px;
-        text-align: center;
-      }
-
-      .groupContent{
-        width: fit-content;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-
-        .group{
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          width: fit-content;
-          margin-top: 10px;
-          align-self: flex-end;
-
-          label{
-            margin-right: 5px;
-            font-size: 12px;
-          }
-
-          input[type=text],
-          input[type=number]{
-            background: transparent;
-            border: none;
-            border-bottom:1px solid yellowgreen;
-            color: whitesmoke;
-            font-size: 12px;
-            outline: none;
-          }
-        }
-      }
-
-      .form_error{
-        margin-top: 10px;
-        color: red;
-        font-size: 12px;
-      }
-
-      input[type=submit]{
+      .submit{
         width: fit-content;
         border: none;
         border-radius: 5px;
-        padding: 5px 10px;
+        padding: 0px 15px;
         margin-top: 10px;
         background: yellowgreen;
         color: white;
         text-shadow: 2px 2px 2px black;
       }
 
-      input[type=submit]:hover{
+      .submit:hover{
         box-shadow: 0px 0px 10px 2px yellowgreen;
         text-shadow: none;
       }
 
-      input[type=submit]:active{
+      .submit:active{
+        box-shadow: none;
+      }
+    }
+
+    .formData{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 250px;
+      width: 30%;
+      height: fit-content;
+      padding: 10px;
+      box-shadow: 0px 0px 10px 2px black;
+      border-radius: 5px;
+
+      .savedWarn{
+        color: yellowgreen;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .groupContent{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        //border: 1px solid yellow;
+
+        .group{
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          width: 90%;
+          margin-top: 10px;
+
+          input:-webkit-autofill {
+            border: none;
+            -webkit-text-fill-color: whitesmoke;
+            -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+            box-shadow: 0 0 0px 1000px transparent inset;
+            transition: background-color 5000s ease-in-out 0s;
+          }
+        }
+      }
+
+      .submit{
+        width: fit-content;
+        border: none;
+        border-radius: 5px;
+        padding: 0px 15px;
+        margin-top: 10px;
+        background: yellowgreen;
+        color: white;
+        text-shadow: 2px 2px 2px black;
+      }
+
+      .submit:hover{
+        box-shadow: 0px 0px 10px 2px yellowgreen;
+        text-shadow: none;
+      }
+
+      .submit:active{
         box-shadow: none;
       }
 
-      input[type=submit]:disabled{
+      .submit:disabled{
         background: rgba(10, 10, 10, 0.274);
         color: rgb(133, 133, 133);
         box-shadow: none;
@@ -261,5 +250,23 @@
         word-wrap: break-word;
       }
     }
+  }
+}
+
+::ng-deep .formLabel,::ng-deep .formData {
+  .mat-focused .mat-form-field-ripple {
+    background-color: whitesmoke !important;
+  }
+  .mat-focused .mat-form-field-label {
+    color: yellowgreen !important;
+  }
+  .mat-form-field-label {
+    color: rgb(255, 255, 255) !important;
+  }
+  .mat-form-field-underline{
+    background-color:yellowgreen !important;
+  }
+  .mat-input-element::placeholder{
+    color: rgb(145, 143, 143);
   }
 }

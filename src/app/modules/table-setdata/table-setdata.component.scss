@@ -23,46 +23,77 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    //border: 1px solid yellow;
+    gap: 10px;
 
     .group{
       display: flex;
-      flex-direction: row;
       flex-wrap: wrap;
       align-items: baseline;
 
-      label{
-        margin: 10px 10px 0;
+      input:-webkit-autofill {
+        border: none;
+        -webkit-text-fill-color: whitesmoke;
+        -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+        box-shadow: 0 0 0px 1000px transparent inset;
+        transition: background-color 5000s ease-in-out 0s;
       }
 
-      input[type=text]{
-        background: transparent;
-        color: whitesmoke;
-        border: none;
-        border-bottom: 1px solid yellowgreen;
-        outline: none;
-      }
+      // label{
+      //   margin: 10px 10px 0;
+      // }
+
+      // input[type=text]{
+      //   background: transparent;
+      //   color: whitesmoke;
+      //   border: none;
+      //   border-bottom: 1px solid yellowgreen;
+      //   outline: none;
+      // }
     }
   }
 
-  input[type=submit]{
+  .submit{
     width: fit-content;
     border: none;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 0px 15px;
     margin-top: 10px;
     background: yellowgreen;
     color: white;
     text-shadow: 2px 2px 2px black;
   }
 
-  input[type=submit]:hover{
+  .submit:hover{
     box-shadow: 0px 0px 10px 2px yellowgreen;
     text-shadow: none;
   }
 
-  input[type=submit]:active{
+  .submit:active{
     box-shadow: none;
   }
+
+
+  // input[type=submit]{
+  //   width: fit-content;
+  //   border: none;
+  //   border-radius: 5px;
+  //   padding: 5px 10px;
+  //   margin-top: 10px;
+  //   background: yellowgreen;
+  //   color: white;
+  //   text-shadow: 2px 2px 2px black;
+  // }
+
+  // input[type=submit]:hover{
+  //   box-shadow: 0px 0px 10px 2px yellowgreen;
+  //   text-shadow: none;
+  // }
+
+  // input[type=submit]:active{
+  //   box-shadow: none;
+  // }
 }
 
 .tableDataForm{
@@ -85,6 +116,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    //border: 1px solid yellow;
+    gap: 10px;
 
     .group{
       display: flex;
@@ -92,46 +126,75 @@
       flex-wrap: wrap;
       align-items: baseline;
 
-      label{
-        margin: 10px 10px 0;
+      input:-webkit-autofill {
+        border: none;
+        -webkit-text-fill-color: whitesmoke;
+        -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+        box-shadow: 0 0 0px 1000px transparent inset;
+        transition: background-color 5000s ease-in-out 0s;
       }
 
-      input[type=text]{
-        background: transparent;
-        color: whitesmoke;
-        border: none;
-        border-bottom: 1px solid yellowgreen;
-        outline: none;
-      }
+      // label{
+      //   margin: 10px 10px 0;
+      // }
+
+      // input[type=text]{
+      //   background: transparent;
+      //   color: whitesmoke;
+      //   border: none;
+      //   border-bottom: 1px solid yellowgreen;
+      //   outline: none;
+      // }
     }
   }
 
-  .form_error{
-    margin-top: 10px;
-    color: red;
-    font-size: 12px;
-  }
+  // .form_error{
+  //   margin-top: 10px;
+  //   color: red;
+  //   font-size: 12px;
+  // }
 
-  input[type=submit]{
+  .submit{
     width: fit-content;
     border: none;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 0px 15px;
     margin-top: 10px;
     background: yellowgreen;
     color: white;
     text-shadow: 2px 2px 2px black;
   }
-  input[type=submit]:hover{
+
+  .submit:hover{
     box-shadow: 0px 0px 10px 2px yellowgreen;
     text-shadow: none;
   }
-  input[type=submit]:active{
+
+  .submit:active{
     box-shadow: none;
   }
-  input[type=submit]:disabled{
+
+  .submit:disabled{
     background: rgba(10, 10, 10, 0.274);
     color: rgb(133, 133, 133);
     box-shadow: none;
+  }
+}
+
+::ng-deep .tableLabelsForm,::ng-deep .tableDataForm {
+  .mat-focused .mat-form-field-ripple {
+    background-color: whitesmoke !important;
+  }
+  .mat-focused .mat-form-field-label {
+    color: yellowgreen !important;
+  }
+  .mat-form-field-label {
+    color: rgb(255, 255, 255) !important;
+  }
+  .mat-form-field-underline{
+    background-color:yellowgreen !important;
+  }
+  .mat-input-element::placeholder{
+    color: rgb(145, 143, 143);
   }
 }

@@ -51,27 +51,17 @@
 
         .group{
           display: flex;
-          flex-direction: row;
+          width: 90%;
+          flex-direction: column;
           font-size: 12px;
           flex-wrap: nowrap;
 
-          label{
-            width: 80px;
-            display: flex;
-            align-items: flex-end;
-            margin: 0;
-            padding: 0;
-          }
-
-          input[type=text],
-          input[type=number]{
-            margin-top: 10px;
-            background: transparent;
-            color: whitesmoke;
+          input:-webkit-autofill {
             border: none;
-            border-bottom: 1px solid yellowgreen;
-            outline: none;
-            font-size: 12px;
+            -webkit-text-fill-color: whitesmoke;
+            -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+            box-shadow: 0 0 0px 1000px transparent inset;
+            transition: background-color 5000s ease-in-out 0s;
           }
 
           .spacing{
@@ -79,23 +69,23 @@
           }
         }
 
-        input[type=submit]{
+        .submit{
           width: fit-content;
           border: none;
           border-radius: 5px;
-          padding: 5px 10px;
+          padding: 0px 15px;
           margin-top: 10px;
           background: yellowgreen;
           color: white;
           text-shadow: 2px 2px 2px black;
         }
 
-        input[type=submit]:hover{
+        .submit:hover{
           box-shadow: 0px 0px 10px 2px yellowgreen;
           text-shadow: none;
         }
 
-        input[type=submit]:active{
+        .submit:active{
           box-shadow: none;
         }
 
@@ -161,27 +151,17 @@
 
         .group{
           display: flex;
-          flex-direction: row;
+          width: 90%;
+          flex-direction: column;
           font-size: 12px;
           flex-wrap: nowrap;
 
-          label{
-            width: 80px;
-            display: flex;
-            align-items: flex-end;
-            margin: 0;
-            padding: 0;
-          }
-
-          input[type=text],
-          input[type=number]{
-            margin-top: 10px;
-            background: transparent;
+          input:-webkit-autofill {
             border: none;
-            border-bottom: 1px solid yellowgreen;
-            outline: none;
-            color: whitesmoke;
-            font-size: 12px;
+            -webkit-text-fill-color: whitesmoke;
+            -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+            box-shadow: 0 0 0px 1000px transparent inset;
+            transition: background-color 5000s ease-in-out 0s;
           }
 
           .spacing{
@@ -189,33 +169,27 @@
           }
         }
 
-        .form_error{
-          margin-top: 10px;
-          color: red;
-          font-size: 12px;
-        }
-
-        input[type=submit]{
+        .submit{
           width: fit-content;
           border: none;
           border-radius: 5px;
-          padding: 5px 10px;
+          padding: 0px 15px;
           margin-top: 10px;
           background: yellowgreen;
           color: white;
           text-shadow: 2px 2px 2px black;
         }
 
-        input[type=submit]:hover{
+        .submit:hover{
           box-shadow: 0px 0px 10px 2px yellowgreen;
           text-shadow: none;
         }
 
-        input[type=submit]:active{
+        .submit:active{
           box-shadow: none;
         }
 
-        input[type=submit]:disabled{
+        .submit:disabled{
           background: rgba(10, 10, 10, 0.274);
           color: rgb(133, 133, 133);
           box-shadow: none;
@@ -357,3 +331,22 @@
     box-shadow: 0px 0px 10px 2px black;
   }
 }
+
+::ng-deep .formLabel,::ng-deep .formData {
+  .mat-focused .mat-form-field-ripple {
+    background-color: whitesmoke !important;
+  }
+  .mat-focused .mat-form-field-label {
+    color: yellowgreen !important;
+  }
+  .mat-form-field-label {
+    color: rgb(255, 255, 255) !important;
+  }
+  .mat-form-field-underline{
+    background-color:yellowgreen !important;
+  }
+  .mat-input-element::placeholder{
+    color: rgb(145, 143, 143);
+  }
+}
+

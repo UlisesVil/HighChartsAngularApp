@@ -1,73 +1,71 @@
 <div class="wrapper">
   <div class="dataContainer">
     <div class="formContainer">
-      <form class="formLabel" #formLabelsMainChart="ngForm" (ngSubmit)="onSubmitLabel(formLabelsMainChart)">
+
+
+      <form  [formGroup]="formLabel" class="formLabel">
         <p>Chart Labels</p>
         <div class="savedWarn" *ngIf="savedLabelsWarn">
           {{savedLabelsWarn}}
         </div>
-        <div class="group">
-          <label for="title">Chart Title:</label>
+        <mat-form-field class="group">
+          <mat-label class="label">Chart Title:</mat-label>
           <input
+            matInput
             type="text"
             name="title"
-            #title="ngModel"
-            [(ngModel)]='chartLabels.title'
-            placeholder="Chart Title"
+            formControlName="title"
           >
-        </div>
-        <div class="group">
-          <label for="subTitle">Chart Subtitle:</label>
+        </mat-form-field>
+        <mat-form-field class="group">
+          <mat-label class="label">Chart Sub-Title:</mat-label>
           <input
+            matInput
             type="text"
             name="subTitle"
-            #subTitle="ngModel"
-            [(ngModel)]='chartLabels.subTitle'
-            placeholder="Chart Sub-Title"
+            formControlName="subTitle"
           >
-        </div>
-        <div class="group">
-          <label for="labelXAxis">Label X Axis:</label>
+        </mat-form-field>
+        <mat-form-field class="group">
+          <mat-label class="label">X Label:</mat-label>
           <input
+            matInput
             type="text"
             name="labelXAxis"
-            #labelXAxis="ngModel"
-            [(ngModel)]='chartLabels.labelXAxis'
-            placeholder="X Label"
+            formControlName="labelXAxis"
           >
-        </div>
-        <div class="group">
-          <label for="labelYAxis">Label Y Axis:</label>
+        </mat-form-field>
+        <mat-form-field class="group">
+          <mat-label class="label">Y Label:</mat-label>
           <input
+            matInput
             type="text"
             name="labelYAxis"
-            #labelYAxis="ngModel"
-            [(ngModel)]='chartLabels.labelYAxis'
-            placeholder="Y Label"
+            formControlName="labelYAxis"
           >
-        </div>
-        <div class="group">
-          <label for="toolTip">Tooltip:</label>
+        </mat-form-field>
+        <mat-form-field class="group">
+          <mat-label class="label">Tooltip:</mat-label>
           <input
+            matInput
             type="text"
             name="toolTip"
-            #toolTip="ngModel"
-            [(ngModel)]='chartLabels.toolTip'
             placeholder="Value Label"
+            formControlName="toolTip"
           >
-        </div>
-        <div class="group">
-          <label for="categories">Categories:</label>
+        </mat-form-field>
+        <mat-form-field class="group">
+          <mat-label class="label">Categories:</mat-label>
           <input
+            matInput
             type="text"
             class="spacing"
             name="categories"
-            #categories="ngModel"
-            [(ngModel)]='chartLabels.categories'
             placeholder="January February March"
+            formControlName="categories"
           >
-        </div>
-        <input type="submit" value="Save Labels">
+        </mat-form-field>
+        <button class="submit" mat-raised-button type="submit" (click)="onSubmitLabel()">Save Labels</button>
         <div class="instructions">
           Notes:
           <ol>
@@ -80,62 +78,64 @@
         </div>
       </form>
 
-      <form class="formData" #formDataMainChart="ngForm" (ngSubmit)="onSubmitData(formDataMainChart)" *ngIf="idLabel">
+      <form  [formGroup]="formData" class="formData" *ngIf="idLabel">
         <p>Chart Series Data</p>
         <div class="savedWarn" *ngIf="savedDataWarn">
           {{savedDataWarn}}
         </div>
 
-        <div class="group">
-          <label for="seriesName">Serie's Name:</label>
+        <mat-form-field class="group">
+          <mat-label class="label">Serie's Name:</mat-label>
           <input
+            matInput
             type="text"
             name="seriesName"
-            #seriesName="ngModel"
-            [(ngModel)]='chartData.seriesName'
-            placeholder=""
+            formControlName="seriesName"
             required
           >
-        </div>
-        <div class="group">
-          <label for="data">Serie's Values:</label>
+          <mat-error>
+            <span class="form_error">
+              <strong>*Serie's Name is required</strong>
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="group">
+          <mat-label class="label">Serie's Values:</mat-label>
           <input
+            matInput
             class="spacing"
             type="text"
             name="data"
-            #data="ngModel"
-            [(ngModel)]='chartData.data'
             placeholder="0123 4567 8910"
+            formControlName="data"
             (keypress)="charFilter($event)"
-            required>
-        </div>
-        <div class="group">
-          <label for="target">Serie's Target:</label>
-          <input
-            type="Number"
-            name="target"
-            #target="ngModel"
-            [(ngModel)]='chartData.target'
-            placeholder=""
             required
           >
-        </div>
+          <mat-error>
+            <span class="form_error">
+              <strong>*Serie's Values is required</strong>
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="group">
+          <mat-label class="label">Serie's Target:</mat-label>
+          <input
+            matInput
+            type="Number"
+            name="target"
+            placeholder=""
+            formControlName="target"
+            required
+          >
+          <mat-error>
+            <span class="form_error">
+              <strong>*Serie's Target is required</strong>
+            </span>
+          </mat-error>
+        </mat-form-field>
 
-        <span class="form_error" *ngIf="seriesName.touched && !seriesName.valid ">
-          <strong>*Serie's Name is required</strong>
-        </span>
-        <span class="form_error" *ngIf="data.touched && !data.valid">
-          <strong>*Serie's Values is required</strong>
-        </span>
-        <span class="form_error" *ngIf="target.touched && !target.valid">
-          <strong>*Serie's Target is required</strong>
-        </span>
+        <button class="submit" mat-raised-button type="submit" (click)="onSubmitData()" [disabled]=!formData.valid >Save Series</button>
 
-        <input
-          type="submit"
-          value="Save Series"
-          [disabled]="!formDataMainChart.form.valid || chartData.seriesName==''"
-        >
         <div class="instructions">
           <p>Note: Serie's Values ​​must be written without commas or any other symbol, only period is allowed and values must be separated by space.</p>
           <p class="spacing">Example: 123  4567  789.1</p>

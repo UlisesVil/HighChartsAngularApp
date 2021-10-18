@@ -1,89 +1,84 @@
 <div class="wrapper">
   <div class="formContainer">
-    <form class="labelsForm" #setPieLabels="ngForm"  (ngSubmit)="onSubmitLabels(setPieLabels)">
+    <form  [formGroup]="formLabel" class="formLabel">
       <div class="savedWarn" *ngIf="savedLabelsWarn">
         {{savedLabelsWarn}}
       </div>
-
       <div class="groupContent">
-        <div class="group">
-          <label for="title">Chart Title: </label>
+        <mat-form-field class="group">
+          <mat-label class="label">Chart Title: </mat-label>
           <input
+            matInput
             type="text"
             name="title"
-            #title="ngModel"
-            [(ngModel)]="pieChartLabels.title"
             maxlength="25"
+            formControlName="title"
           >
-        </div>
-        <div class="group">
-          <label for="valueSufix">Value Suffix: </label>
+        </mat-form-field>
+        <mat-form-field class="group">
+          <mat-label class="label">Value Suffix: </mat-label>
           <input
+            matInput
             type="text"
             name="valueSufix"
-            #valueSufix="ngModel"
-            [(ngModel)]="pieChartLabels.valueSufix"
             placeholder="%, km, $..."
             maxlength="10"
+            formControlName="valueSufix"
           >
-        </div>
-        <div class="group">
-          <label for="seriesName">Series Name: </label>
+        </mat-form-field>
+        <mat-form-field class="group">
+          <mat-label class="label">Series Name: </mat-label>
           <input
+            matInput
             type="text"
             name="seriesName"
-            #seriesName="ngModel"
-            [(ngModel)]="pieChartLabels.seriesName"
             maxlength="25"
+            formControlName="seriesName"
           >
-        </div>
+        </mat-form-field>
       </div>
-
-      <input type="submit" value="Save Labels">
+      <button class="submit" mat-raised-button type="submit" (click)="onSubmitLabels()">Save Labels</button>
     </form>
 
-    <form class="dataForm" #setPieData="ngForm"  (ngSubmit)="onSubmitData(setPieData)">
+    <form  [formGroup]="formData" class="formData">
       <div class="savedWarn" *ngIf="savedDataWarn">
         {{savedDataWarn}}
       </div>
-
       <div class="groupContent">
-        <div class="group">
-          <label for="pieceName">Piece Name: </label>
+        <mat-form-field class="group">
+          <mat-label class="label">Piece Name: </mat-label>
           <input
+            matInput
             type="text"
             name="pieceName"
-            #pieceName="ngModel"
-            [(ngModel)]="pieChartData.pieceName"
             maxlength="25"
+            formControlName="pieceName"
             required
           >
-        </div>
-        <div class="group">
-          <label for="percentage">Value: </label>
+          <mat-error>
+            <span class="form_error">
+              <strong>*Piece Name is required</strong>
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="group">
+          <mat-label class="label">Value: </mat-label>
           <input
+            matInput
             type="number"
             name="percentage"
-            #percentage="ngModel"
-            [(ngModel)]="pieChartData.percentage"
             maxlength="9"
+            formControlName="percentage"
             required
           >
-        </div>
+          <mat-error>
+            <span class="form_error">
+              <strong>*Value is required</strong>
+            </span>
+          </mat-error>
+        </mat-form-field>
       </div>
-
-      <span class="form_error" *ngIf="pieceName.touched && !pieceName.valid ">
-        <strong>*Piece Name is required</strong>
-      </span>
-      <span class="form_error" *ngIf="percentage.touched && !percentage.valid">
-        <strong>*Value is required</strong>
-      </span>
-
-      <input
-        type="submit"
-        value="Save Data"
-        [disabled]="!setPieData.form.valid || pieChartData.percentage==''"
-      >
+      <button class="submit" mat-raised-button type="submit" (click)="onSubmitData()" [disabled]=!formData.valid>Save Data</button>
     </form>
 
     <div class="tableContent">

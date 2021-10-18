@@ -1,6 +1,6 @@
 export class MainChartLabelsModel{
   constructor(
-    public idLabel:String,
+    public _id:String,
     public title:String,
     public subTitle:String,
     public labelXAxis:String,
