@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1634600269864,
+  "timestamp": 1634600657557,
   "index": "https://ulisesvil.github.io/HighChartsAngularApp/index.html",
   "assetGroups": [
     {
@@ -57,9 +57,9 @@
     {
       "name": "data-api",
       "patterns": [
-        "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getdataCards",
         "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getAlldata",
         "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getMainChartLabels",
+        "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getdataCards",
         "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getPieChartLabels",
         "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getAllpiedata",
         "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getTableLabels",
