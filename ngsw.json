@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1634792510148,
+  "timestamp": 1634792950679,
   "index": "https://ulisesvil.github.io/HighChartsAngularApp/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://ulisesvil.github.io/HighChartsAngularApp/favicon.ico",
         "https://ulisesvil.github.io/HighChartsAngularApp/index.html",
-        "https://ulisesvil.github.io/HighChartsAngularApp/main.a416818b5f593f2f1c7b.js",
+        "https://ulisesvil.github.io/HighChartsAngularApp/main.457c99cd0635500054a0.js",
         "https://ulisesvil.github.io/HighChartsAngularApp/manifest.webmanifest",
         "https://ulisesvil.github.io/HighChartsAngularApp/polyfills.d6e363c4d3788442fc0f.js",
         "https://ulisesvil.github.io/HighChartsAngularApp/runtime.e227d1a0e31cbccbf8ec.js",
@@ -93,8 +93,8 @@
     "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/presentation.jpg": "0ce5b791925a313d3fa8c35493eaf56eb79732a2",
     "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/table.jpg": "4620de565a9aea42526f35c10ecef0acde1ad32c",
     "https://ulisesvil.github.io/HighChartsAngularApp/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://ulisesvil.github.io/HighChartsAngularApp/index.html": "fd9c9a43143e20acbd2c2f7ea4d5b042d85e2959",
-    "https://ulisesvil.github.io/HighChartsAngularApp/main.a416818b5f593f2f1c7b.js": "ef50f09a117ccd21d1ed3876eff9aeb305ca34cd",
+    "https://ulisesvil.github.io/HighChartsAngularApp/index.html": "5dc15f9d35f5f44687a8cbec2fe46134d491d018",
+    "https://ulisesvil.github.io/HighChartsAngularApp/main.457c99cd0635500054a0.js": "6eb794bca26322a58b3a18c1d88ddad993886740",
     "https://ulisesvil.github.io/HighChartsAngularApp/manifest.webmanifest": "55dfddd39e87e708e4d6f44f3c6e1fbcc83fc9c8",
     "https://ulisesvil.github.io/HighChartsAngularApp/polyfills.d6e363c4d3788442fc0f.js": "d0fee4aed1e5841843f11dd1898fa893c72043f4",
     "https://ulisesvil.github.io/HighChartsAngularApp/runtime.e227d1a0e31cbccbf8ec.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
