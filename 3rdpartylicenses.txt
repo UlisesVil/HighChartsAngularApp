@@ -201,6 +201,9 @@ PERFORMANCE OF THIS SOFTWARE.
 
 
 
+ng-connection-service
+MIT
+
 numeral
 MIT
 Copyright (c) 2016 Adam Draper
@@ -655,6 +658,9 @@ WTFPL
 
   0. You just DO WHAT THE FUCK YOU WANT TO.
 
+
+uniqid
+MIT
 
 uuid
 MIT

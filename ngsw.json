@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1634600657557,
+  "timestamp": 1634780729219,
   "index": "https://ulisesvil.github.io/HighChartsAngularApp/index.html",
   "assetGroups": [
     {
@@ -13,11 +13,11 @@
       "urls": [
         "https://ulisesvil.github.io/HighChartsAngularApp/favicon.ico",
         "https://ulisesvil.github.io/HighChartsAngularApp/index.html",
-        "https://ulisesvil.github.io/HighChartsAngularApp/main.7de21d399fe1612af4d3.js",
+        "https://ulisesvil.github.io/HighChartsAngularApp/main.ad1a39a929082a9bb5a3.js",
         "https://ulisesvil.github.io/HighChartsAngularApp/manifest.webmanifest",
         "https://ulisesvil.github.io/HighChartsAngularApp/polyfills.d6e363c4d3788442fc0f.js",
         "https://ulisesvil.github.io/HighChartsAngularApp/runtime.e227d1a0e31cbccbf8ec.js",
-        "https://ulisesvil.github.io/HighChartsAngularApp/styles.8cbb6ca24f91e311ec20.css"
+        "https://ulisesvil.github.io/HighChartsAngularApp/styles.faafce83b147c1c5e03b.css"
       ],
       "patterns": [
         "https:\\/\\/fonts\\.googleapis\\.com\\/css2\\?family=IBM\\+Plex\\+Sans:wght@300;400;500;600&display=swap",
@@ -93,12 +93,12 @@
     "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/presentation.jpg": "0ce5b791925a313d3fa8c35493eaf56eb79732a2",
     "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/table.jpg": "4620de565a9aea42526f35c10ecef0acde1ad32c",
     "https://ulisesvil.github.io/HighChartsAngularApp/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://ulisesvil.github.io/HighChartsAngularApp/index.html": "f2931596cb4555fd37f25928a73ff1f9f9b18949",
-    "https://ulisesvil.github.io/HighChartsAngularApp/main.7de21d399fe1612af4d3.js": "46938e0f2a5d66453ecbfc9605af7dd648b483bb",
+    "https://ulisesvil.github.io/HighChartsAngularApp/index.html": "05510c8b80bfb8b2299345c30fe2d0ca8da3efc0",
+    "https://ulisesvil.github.io/HighChartsAngularApp/main.ad1a39a929082a9bb5a3.js": "2b4564063680dd0af41b35ec89b4de98b77ceb24",
     "https://ulisesvil.github.io/HighChartsAngularApp/manifest.webmanifest": "55dfddd39e87e708e4d6f44f3c6e1fbcc83fc9c8",
     "https://ulisesvil.github.io/HighChartsAngularApp/polyfills.d6e363c4d3788442fc0f.js": "d0fee4aed1e5841843f11dd1898fa893c72043f4",
     "https://ulisesvil.github.io/HighChartsAngularApp/runtime.e227d1a0e31cbccbf8ec.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "https://ulisesvil.github.io/HighChartsAngularApp/styles.8cbb6ca24f91e311ec20.css": "a65ad4c26c8fa922100f585bc9509bfc2f757f12"
+    "https://ulisesvil.github.io/HighChartsAngularApp/styles.faafce83b147c1c5e03b.css": "048580666f995036002b6cb0d1c01933373598d5"
   },
   "navigationUrls": [
     {
