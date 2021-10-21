@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1634791512489,
-  "index": "https://ulisesvil.github.io/HighChartsAngularApp/index.html",
+  "timestamp": 1634792465780,
+  "index": "/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://ulisesvil.github.io/HighChartsAngularApp/favicon.ico",
-        "https://ulisesvil.github.io/HighChartsAngularApp/index.html",
-        "https://ulisesvil.github.io/HighChartsAngularApp/main.43f4b3c8e661d81dc0ec.js",
-        "https://ulisesvil.github.io/HighChartsAngularApp/manifest.webmanifest",
-        "https://ulisesvil.github.io/HighChartsAngularApp/polyfills.d6e363c4d3788442fc0f.js",
-        "https://ulisesvil.github.io/HighChartsAngularApp/runtime.e227d1a0e31cbccbf8ec.js",
-        "https://ulisesvil.github.io/HighChartsAngularApp/styles.faafce83b147c1c5e03b.css"
+        "/favicon.ico",
+        "/index.html",
+        "/main.a416818b5f593f2f1c7b.js",
+        "/manifest.webmanifest",
+        "/polyfills.d6e363c4d3788442fc0f.js",
+        "/runtime.e227d1a0e31cbccbf8ec.js",
+        "/styles.faafce83b147c1c5e03b.css"
       ],
       "patterns": [
         "https:\\/\\/fonts\\.googleapis\\.com\\/css2\\?family=IBM\\+Plex\\+Sans:wght@300;400;500;600&display=swap",
@@ -33,22 +33,22 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/appicon.jpg",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/card.jpg",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/graphIcon01.jpg",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/graphIcon02.jpg",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-128x128.png",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-144x144.png",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-152x152.png",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-192x192.png",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-384x384.png",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-512x512.png",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-72x72.png",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-96x96.png",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/mainsample.jpg",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/piesample.jpg",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/presentation.jpg",
-        "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/table.jpg"
+        "/assets/icons/appicon.jpg",
+        "/assets/icons/card.jpg",
+        "/assets/icons/graphIcon01.jpg",
+        "/assets/icons/graphIcon02.jpg",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/icons/mainsample.jpg",
+        "/assets/icons/piesample.jpg",
+        "/assets/icons/presentation.jpg",
+        "/assets/icons/table.jpg"
       ],
       "patterns": []
     }
@@ -76,29 +76,29 @@
     }
   ],
   "hashTable": {
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/appicon.jpg": "fa4f65adb35cf04872a2be2a78c5a48ce85edb75",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/card.jpg": "34e1b186bba9c71644a14af89713064fe6bcf75a",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/graphIcon01.jpg": "cc794bec16c3a7bbdbbc5f37068de71010df46ca",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/graphIcon02.jpg": "9d210ee7aa4b6d8fe6b6598a07c606d5f161061f",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-128x128.png": "4228aa50611c34dab39ed265aa541718f24ccd86",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-144x144.png": "72460ea62d0c65f37f12006b416c0ae73daf25c6",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-152x152.png": "c5eb5cc1badaf0208e49078147cb0224fc7685a3",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-192x192.png": "1e9413db2012543d8303880c25d882436f7494e6",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-384x384.png": "fbdb2463824055970bdf3abb702ed665fd0f44a6",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-512x512.png": "8b69c7cb0ed246314176cb4be36ffaf88fb12c8b",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-72x72.png": "48e1de13fd2da8be5d2ab332567d2fe9670124e2",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/icon-96x96.png": "7e80a0a564233908b869ca3be3ca5e5f8caf3a37",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/mainsample.jpg": "0f75ccf58bd2cc3a6c9f9a202482ff1555475698",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/piesample.jpg": "2b944af25eeedfe5c160f27f687679597ac98eae",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/presentation.jpg": "0ce5b791925a313d3fa8c35493eaf56eb79732a2",
-    "https://ulisesvil.github.io/HighChartsAngularApp/assets/icons/table.jpg": "4620de565a9aea42526f35c10ecef0acde1ad32c",
-    "https://ulisesvil.github.io/HighChartsAngularApp/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://ulisesvil.github.io/HighChartsAngularApp/index.html": "bae840454dc16ab68db3693b78d9b1dd86147962",
-    "https://ulisesvil.github.io/HighChartsAngularApp/main.43f4b3c8e661d81dc0ec.js": "38136f921399f3a81c75285596ef98462e7a4419",
-    "https://ulisesvil.github.io/HighChartsAngularApp/manifest.webmanifest": "55dfddd39e87e708e4d6f44f3c6e1fbcc83fc9c8",
-    "https://ulisesvil.github.io/HighChartsAngularApp/polyfills.d6e363c4d3788442fc0f.js": "d0fee4aed1e5841843f11dd1898fa893c72043f4",
-    "https://ulisesvil.github.io/HighChartsAngularApp/runtime.e227d1a0e31cbccbf8ec.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "https://ulisesvil.github.io/HighChartsAngularApp/styles.faafce83b147c1c5e03b.css": "048580666f995036002b6cb0d1c01933373598d5"
+    "/assets/icons/appicon.jpg": "fa4f65adb35cf04872a2be2a78c5a48ce85edb75",
+    "/assets/icons/card.jpg": "34e1b186bba9c71644a14af89713064fe6bcf75a",
+    "/assets/icons/graphIcon01.jpg": "cc794bec16c3a7bbdbbc5f37068de71010df46ca",
+    "/assets/icons/graphIcon02.jpg": "9d210ee7aa4b6d8fe6b6598a07c606d5f161061f",
+    "/assets/icons/icon-128x128.png": "4228aa50611c34dab39ed265aa541718f24ccd86",
+    "/assets/icons/icon-144x144.png": "72460ea62d0c65f37f12006b416c0ae73daf25c6",
+    "/assets/icons/icon-152x152.png": "c5eb5cc1badaf0208e49078147cb0224fc7685a3",
+    "/assets/icons/icon-192x192.png": "1e9413db2012543d8303880c25d882436f7494e6",
+    "/assets/icons/icon-384x384.png": "fbdb2463824055970bdf3abb702ed665fd0f44a6",
+    "/assets/icons/icon-512x512.png": "8b69c7cb0ed246314176cb4be36ffaf88fb12c8b",
+    "/assets/icons/icon-72x72.png": "48e1de13fd2da8be5d2ab332567d2fe9670124e2",
+    "/assets/icons/icon-96x96.png": "7e80a0a564233908b869ca3be3ca5e5f8caf3a37",
+    "/assets/icons/mainsample.jpg": "0f75ccf58bd2cc3a6c9f9a202482ff1555475698",
+    "/assets/icons/piesample.jpg": "2b944af25eeedfe5c160f27f687679597ac98eae",
+    "/assets/icons/presentation.jpg": "0ce5b791925a313d3fa8c35493eaf56eb79732a2",
+    "/assets/icons/table.jpg": "4620de565a9aea42526f35c10ecef0acde1ad32c",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "6a1f23bb37ca49192a41d3fd506976b070eb517e",
+    "/main.a416818b5f593f2f1c7b.js": "ef50f09a117ccd21d1ed3876eff9aeb305ca34cd",
+    "/manifest.webmanifest": "55dfddd39e87e708e4d6f44f3c6e1fbcc83fc9c8",
+    "/polyfills.d6e363c4d3788442fc0f.js": "d0fee4aed1e5841843f11dd1898fa893c72043f4",
+    "/runtime.e227d1a0e31cbccbf8ec.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/styles.faafce83b147c1c5e03b.css": "048580666f995036002b6cb0d1c01933373598d5"
   },
   "navigationUrls": [
     {
