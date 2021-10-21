@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1634782859945,
+  "timestamp": 1634783261584,
   "index": "https://ulisesvil.github.io/HighChartsAngularApp/index.html",
   "assetGroups": [
     {
@@ -65,7 +65,7 @@
         "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getTableLabels",
         "https:\\/\\/backend-angular-apps\\.herokuapp\\.com\\/chartsApp\\/getAllTabledata"
       ],
-      "strategy": "freshness",
+      "strategy": "performance",
       "maxSize": 5,
       "maxAge": 3000000,
       "timeoutMs": 5000,
