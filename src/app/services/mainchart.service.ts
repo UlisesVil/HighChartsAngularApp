@@ -13,6 +13,21 @@ export class MainchartService {
     public _http : HttpClient
   ) { }
 
+  getAlldata(dataId):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'getAlldata/'+dataId,{headers:headers});
+  }
+
+  getBigChartLabels():Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'getMainChartLabels',{headers:headers});
+  }
+
+  getdataCards():Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'getdataCards',{headers:headers});
+  }
+
   saveBigChartLabels(labels):Observable<any>{
     let params= JSON.stringify(labels);
     let headers = new HttpHeaders().set('Content-Type','application/json');
@@ -31,23 +46,9 @@ export class MainchartService {
     return this._http.put(this.url+'updateMainChartLabels',params,{headers:headers});
   }
 
-  getAlldata(dataId):Observable<any>{
-    let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url+'getAlldata/'+dataId,{headers:headers});
-  }
-
   deleteSeries(seriesId):Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.delete(this.url+'deleteSeries/'+seriesId,{headers:headers});
   }
 
-  getBigChartLabels():Observable<any>{
-    let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url+'getMainChartLabels',{headers:headers});
-  }
-
-  getdataCards():Observable<any>{
-    let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url+'getdataCards',{headers:headers});
-  }
 }

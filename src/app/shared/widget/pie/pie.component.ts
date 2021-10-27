@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PiechartService } from '../../../services/piechart.service';
+import { BdPwaPieService } from '../../../services/bd-pwa-pie.service';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
 import theme from 'highcharts/themes/dark-unica';
@@ -12,21 +13,27 @@ import theme from 'highcharts/themes/dark-unica';
 export class PieComponent implements OnInit {
   @Output() dataLabelsId: EventEmitter<any>= new EventEmitter();
   @Output() dataSeries: EventEmitter<any>= new EventEmitter();
+  @Output() getLocalLabels: EventEmitter<any>= new EventEmitter();
+  @Output() dataSeriesLocal: EventEmitter<any>= new EventEmitter();
 
   public data=[];
   public chartOptions:{};
   public Highcharts= Highcharts;
   public labelsData:any;
   public findLocation:number;
+  public localLabels:any;
+  public localDataDB:any[]=[];
 
   constructor(
-    public _piechartService: PiechartService
+    public _piechartService: PiechartService,
+    private _bdPwaPieService: BdPwaPieService
   ) { }
 
   ngOnInit(): void {
     this.location();
     this.getPieChartInfo();
     theme(Highcharts);
+    this.getLocalData();
   }
 
   location(){
@@ -62,13 +69,14 @@ export class PieComponent implements OnInit {
               });
               this.dataSeries.emit(dataDB);
             },
-            err=>{
-              console.log(<any>err);
+            error=>{
+              console.log(<any>error);
             }
           );
         }
-      },err=>{
-        console.log(<any>err);
+      },
+      error=>{
+        console.log(<any>error);
       }
     );
 
@@ -78,6 +86,29 @@ export class PieComponent implements OnInit {
         new Event('resize')
       );
     },300);
+  }
+
+  getLocalData(){
+    this._bdPwaPieService.getPieChartLocalData()
+      .then((items:Array<any>)=>{
+        items.forEach(({doc})=>{
+          if(doc.title){
+            this.localLabels=doc;
+            this.getLocalLabels.emit(this.localLabels);
+          }
+          if(doc.pieceName){
+            let element={
+              serieId:doc.pieceName,
+              pieceName:doc.pieceName,
+              percentage:JSON.stringify(doc.percentage),
+              _rev:doc._rev
+            }
+            this.localDataDB.push(element);
+            this.dataSeriesLocal.emit(this.localDataDB);
+          }
+        });
+      })
+    ;
   }
 
   setOptions(data?:any, labels?:any){

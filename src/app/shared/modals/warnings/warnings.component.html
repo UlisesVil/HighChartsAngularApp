@@ -1,0 +1,26 @@
+<div class="modalWarnings">
+  <div class="errorWarning" *ngIf="errorWarning">
+    <div class="textContent">
+      <i class="fas fa-exclamation-circle"> {{errorWarning}}</i>
+    </div>
+    <button
+      mat-raised-button
+      class="btn"
+      (click)="modalOff()"
+    >
+      Ok
+    </button>
+  </div>
+  <div class="okWarning" *ngIf="okWarning">
+    <div class="textContent" *ngFor="let text of okWarning">
+      <p>{{text}}</p>
+    </div>
+    <button
+      mat-raised-button
+      class="btn"
+      (click)="modalOff()"
+    >
+      Ok
+    </button>
+  </div>
+</div>

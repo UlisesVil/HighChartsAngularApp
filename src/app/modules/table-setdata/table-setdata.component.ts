@@ -1,14 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TableLabelModel, TableDataModel } from '../../models/tableModel';
 import { TableService } from '../../services/table.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BdPwaTableService } from '../../services/bd-pwa-table.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { TableDataInterface } from '../../interfaces/tabledata-interface';
+import uniqid from 'uniqid';
 
 @Component({
   selector: 'app-table-setdata',
   templateUrl: './table-setdata.component.html',
   styleUrls: ['./table-setdata.component.scss']
 })
-export class TableSetdataComponent {
+export class TableSetdataComponent implements OnInit{
+  //Offline Table
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  public displayedColumns: string[] = ['position', 'dataH1', 'dataH2', 'dataH3'];
+  public ELEMENT_DATA: TableDataInterface[];
+  public dataSource:any;
+  public localDBEmpty:boolean=false;
+  public localLabels:any={header1:'--',header2:'--',header3:'--'};
+  public localData:any[];
+
+  //Online Table
   public tableLabelLine:TableLabelModel;
   public tableDataLine:TableDataModel;
   public tableLabels:any;
@@ -18,14 +33,43 @@ export class TableSetdataComponent {
   public tableLabelsForm: FormGroup;
   public tableDataForm: FormGroup;
 
+  //Modal
+  public okWarning:String[];
+  public errorWarning:String;
+  public modal: boolean=false;
+  public sync:boolean=false;
+
   constructor(
     private _tableService: TableService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _bdPwaTableService: BdPwaTableService
   ) {
     this.tableLabelLine= new TableLabelModel('','','','');
     this.tableDataLine= new TableDataModel('','','','');
     this.tableLabelsCreate();
     this.tableDataCreate();
+  }
+
+  ngOnInit():void {
+    this.syncButtonControl();
+  }
+
+  locationReload(){
+    setTimeout(()=>{
+      location.reload();
+    },1000);
+  }
+
+  syncButtonControl(){
+    this._bdPwaTableService.getTableLocalData()
+      .then((items:Array<any>)=>{
+        if(items.length!==0 ){
+          this.localDBEmpty=true;
+        }else{
+          this.localDBEmpty=false;
+        }
+      })
+    ;
   }
 
   tableLabelsCreate(){
@@ -64,28 +108,35 @@ export class TableSetdataComponent {
         header2: this.tableLabelsForm.value.header2,
         header3: this.tableLabelsForm.value.header3
       }
-
       if(this.idLabel!=undefined){
         this._tableService.updateTableLabels(this.tableLabelLine).subscribe(
           response=>{
             this.savedLabelsWarn=response.message;
-            setTimeout(()=>{
-              location.reload();
-            },1000);
-        },err=>{
-          console.log(<any>err);
-        });
+            this.locationReload();
+          },
+          error=>{
+            if(<any>error){
+              console.log(<any>error);
+            };
+            this.okWarning=[
+              "You Don't have Internet Connection.",
+              "All changes will be saved in cache.",
+              "The changes will be applied when Internet comes back and you activate the sync button."
+            ];
+            this.modal=true;
+            const tableLablesLocal= {...this.tableLabelLine,_id:this.tableLabelLine.idLabel}
+            this._bdPwaTableService.saveLocalTableLabels(tableLablesLocal);
+          }
+        );
       }else{
         this.tableLabelLine.idLabel=this.idLabel;
         this._tableService.saveTableLabels(this.tableLabelLine).subscribe(
           response=>{
             this.savedLabelsWarn=response.message;
-            setTimeout(()=>{
-              location.reload();
-            },1000);
+            this.locationReload();
           },
-          err=>{
-            console.log(<any>err);
+          error=>{
+            console.log(<any>error);
           }
         );
       }
@@ -93,7 +144,6 @@ export class TableSetdataComponent {
   }
 
   onsubmitDataTable(){
-
     if(this.tableDataForm.valid){
       this.tableDataLine={
         tableLabelId: this.idLabel,
@@ -101,18 +151,135 @@ export class TableSetdataComponent {
         dataH2: this.tableDataForm.value.dataH2,
         dataH3: this.tableDataForm.value.dataH3
       }
-
       this.tableDataLine.tableLabelId=this.idLabel;
       this._tableService.saveTableData(this.tableDataLine).subscribe(
         response=>{
           this.savedDataWarn=response.message;
-            setTimeout(()=>{
-              location.reload();
-            },1000);
-        },err=>{
-          console.log(<any>err);
+          this.locationReload();
+        },
+        error=>{
+          if(<any>error){
+            console.log(<any>error);
+          };
+          this.okWarning=[
+            "You Don't have Internet Connection.",
+            "All changes will be saved in cache.",
+            "The changes will be applied when Internet comes back and you activate the Sync button."
+          ];
+          this.modal=true;
+          const tableDataLocal= {...this.tableDataLine,_id: uniqid('local-')}
+          this._bdPwaTableService.saveLocalTableData(tableDataLocal);
         }
       );
     }
+  }
+
+  syncLocal(){
+    this._bdPwaTableService.getTableLocalData()
+      .then((items:Array<any>)=>{
+        items.forEach(({doc})=>{
+          if(doc.header1){
+            this.tableLabelLine=doc;
+            if(this.tableLabels._id!=undefined){
+              this._tableService.updateTableLabels(this.tableLabelLine).subscribe(
+                response=>{
+                  this.savedLabelsWarn=response.message;
+                  this._bdPwaTableService.clearTableLocalDB(doc);
+                  this.locationReload();
+                },
+                error=>{
+                  if(<any>error){
+                    console.log(<any>error);
+                  };
+                  this.okWarning=[
+                    "You Don't have Internet Connection.",
+                    "All changes will be saved in cache.",
+                    "The changes will be applied when Internet comes back and you activate the Sync button."
+                  ];
+                  this.modal=true;
+                }
+              );
+            }else{
+              this.tableLabelLine.idLabel=this.idLabel;
+              this._tableService.saveTableLabels(this.tableLabelLine).subscribe(
+                response=>{
+                  this.savedLabelsWarn=response.message;
+                  this.locationReload();
+                },
+                error=>{
+                  if(<any>error){
+                    console.log(<any>error);
+                  };
+                  this.okWarning=[
+                    "You Don't have Internet Connection.",
+                    "All changes will be saved in cache.",
+                    "The changes will be applied when Internet comes back and you activate the Sync button."
+                  ];
+                  this.modal=true;
+                }
+              );
+            }
+          }
+          if(doc.dataH1){
+            this.tableDataLine=doc;
+            this._tableService.saveTableData(this.tableDataLine).subscribe(
+              response=>{
+                this.savedDataWarn=response.message;
+                this._bdPwaTableService.clearTableLocalDB(doc);
+                this.locationReload();
+              },
+              error=>{
+                if(<any>error){
+                  console.log(<any>error);
+                };
+                this.okWarning=[
+                  "You Don't have Internet Connection.",
+                  "All changes will be saved in cache.",
+                  "The changes will be applied when Internet comes back and you activate the Sync button."
+                ];
+                this.modal=true;
+              }
+            );
+          }
+        });
+      })
+    ;
+  }
+
+  getdataLocal(e){
+    this.localData=e;
+    let data=[];
+    let counter=0;
+    this.localData.forEach(element => {
+      data.push(
+        {
+          position:"value: "+ (counter+=1),
+          dataH1:element.dataH1,
+          dataH2:element.dataH2,
+          dataH3:element.dataH3,
+          _id:element._id,
+          _rev:element._rev
+        }
+      )
+    });
+    this.ELEMENT_DATA=data;
+    this.dataSource = new MatTableDataSource<TableDataInterface>(this.ELEMENT_DATA);
+    this.dataSource.paginator = this.paginator;
+  }
+
+  getLabelsLocal(e){
+    this.localLabels=e;
+  }
+
+  deleteSeriesLocal(doc){
+    this._bdPwaTableService.clearTableLocalDB(doc);
+    this.locationReload();
+  }
+
+  modalOff(e){
+    this.modal=e.modal;
+    this.errorWarning=e.errorWarning;
+    this.okWarning=e.okWarning;
+    e.sync? this.sync=false : this.locationReload();
   }
 }

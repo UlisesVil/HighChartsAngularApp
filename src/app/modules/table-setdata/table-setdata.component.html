@@ -1,3 +1,72 @@
+<div class="sync" [style.display]="(localDBEmpty)? 'block':'none'">
+  <button
+    mat-raised-button
+    type="button"
+    class="btn-sync"
+    (click)="syncLocal()"
+    [disabled]="!localDBEmpty"
+  >
+    Sync
+  </button>
+  <p>
+    You have saved data Offline:
+  </p>
+  <p>
+    When your Internet connection is back push the Sync Button to save it on the server
+  </p>
+
+  <div class="tableContainer">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Labels: </th>
+        <td mat-cell *matCellDef="let element">{{element.position}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataH1">
+        <th mat-header-cell *matHeaderCellDef> {{localLabels.header1}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.dataH1}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataH2">
+        <th mat-header-cell *matHeaderCellDef> {{localLabels.header2}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.dataH2}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataH3">
+        <th mat-header-cell *matHeaderCellDef>
+          {{localLabels.header3}}
+          <span>
+            <i
+              class="fas fa-trash"
+              title="Delete Labels"
+              (click)="deleteSeriesLocal(localLabels)"
+            ></i>
+          </span>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.dataH3}}
+          <span>
+            <i
+              class="fas fa-trash"
+              title="Delete this Series"
+              (click)="deleteSeriesLocal(element)"
+            ></i>
+          </span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+</div>
+
 <form [formGroup]="tableLabelsForm" class="tableLabelsForm">
   <div class="emptyheaders" *ngIf="!tableLabelLine.header1 && !tableLabelLine.header2 && !tableLabelLine.header3">
     <p>
@@ -108,4 +177,16 @@
   </button>
 </form>
 
-<app-widget-table  (dataLabelsId)="getIdLabel($event)"></app-widget-table>
+<app-widget-table
+  (dataLabelsId)="getIdLabel($event)"
+  (dataLocal)="getdataLocal($event)"
+  (labelsLocal)="getLabelsLocal($event)"
+></app-widget-table>
+
+<app-warnings
+  *ngIf="modal"
+  [okWarning]="okWarning"
+  [errorWarning]="errorWarning"
+  [sync]="sync"
+  (deactivateErrorMessage)="modalOff($event)"
+></app-warnings>

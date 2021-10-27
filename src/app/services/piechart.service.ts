@@ -13,6 +13,16 @@ export class PiechartService {
     public _http : HttpClient
   ) { }
 
+  getPieChartLabels():Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'getPieChartLabels',{headers:headers});
+  }
+
+  getAllpiedata(dataId):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'getAllpiedata/'+dataId,{headers:headers});
+  }
+
   savePieChartLabels(labels):Observable<any>{
     let params= JSON.stringify(labels);
     let headers = new HttpHeaders().set('Content-Type','application/json');
@@ -29,16 +39,6 @@ export class PiechartService {
     let params = JSON.stringify(labels);
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.put(this.url+'updatePieChartLabels',params,{headers:headers});
-  }
-
-  getPieChartLabels():Observable<any>{
-    let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url+'getPieChartLabels',{headers:headers});
-  }
-
-  getAllpiedata(dataId):Observable<any>{
-    let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url+'getAllpiedata/'+dataId,{headers:headers});
   }
 
   deletePieData(id):Observable<any>{

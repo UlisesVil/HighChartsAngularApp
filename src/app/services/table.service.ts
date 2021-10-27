@@ -13,6 +13,16 @@ export class TableService {
     public _http : HttpClient
   ) { }
 
+  getTableLabels():Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'getTableLabels',{headers:headers});
+  }
+
+  getAllTabledata(labelId):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.get(this.url+'getAllTabledata/'+labelId,{headers:headers});
+  }
+
   saveTableLabels(labels):Observable<any>{
     let params = JSON.stringify(labels);
     let headers = new HttpHeaders().set('Content-Type','application/json');
@@ -29,16 +39,6 @@ export class TableService {
     let params = JSON.stringify(labels);
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.put(this.url+'updateTableLabels',params,{headers:headers});
-  }
-
-  getTableLabels():Observable<any>{
-    let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url+'getTableLabels',{headers:headers});
-  }
-
-  getAllTabledata(labelId):Observable<any>{
-    let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.get(this.url+'getAllTabledata/'+labelId,{headers:headers});
   }
 
   deleteTableData(dataId):Observable<any>{

@@ -1,3 +1,103 @@
+.sync{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 2px black;
+  margin-bottom: 20px;
+  border: 1px solid rgb(153, 0, 255);
+
+  .btn-sync{
+    width: fit-content;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    padding: 0px 15px;
+    margin: 0 auto 10px;
+    background: yellowgreen;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+  }
+
+  .btn-sync:hover{
+    box-shadow: 0px 0px 10px 2px yellowgreen;
+    text-shadow: none;
+  }
+
+  .btn-sync:active{
+    box-shadow: none;
+  }
+
+  p{
+    text-align: center;
+  }
+
+  .tableContainer{
+    min-width: 250px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px 2px black;
+
+    table{
+      width: 100%;
+      background: #313131;
+
+      th{
+        position: relative;
+        color: whitesmoke;
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: bolder;
+        font-size: 15px;
+
+        .fa-trash{
+          position: absolute;
+          right: 10px;
+          color:rgb(170, 0, 0);
+        }
+
+        .fa-trash:hover{
+          color: rgb(247, 0, 0);
+          text-shadow: 0px 0px 10px rgb(109, 226, 0);
+        }
+      }
+
+      td{
+        position: relative;
+        color: whitesmoke;
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: bolder;
+
+        .fa-trash{
+          position: absolute;
+          right: 10px;
+          color:rgb(170, 0, 0);
+        }
+
+        .fa-trash:hover{
+          color: rgb(247, 0, 0);
+          text-shadow: 0px 0px 10px rgb(109, 226, 0);
+        }
+      }
+    }
+  }
+
+
+}
+@media screen and(max-width:330px){
+  .sync{
+    overflow-x: hidden;
+
+    .tableContainer{
+      align-items: center;
+      margin: 0 auto;
+      min-width: 150px;
+      overflow-x: scroll;
+    }
+  }
+}
+
 .tableLabelsForm{
   display: flex;
   flex-direction: column;
@@ -24,7 +124,6 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    //border: 1px solid yellow;
     gap: 10px;
 
     .group{
@@ -39,18 +138,6 @@
         box-shadow: 0 0 0px 1000px transparent inset;
         transition: background-color 5000s ease-in-out 0s;
       }
-
-      // label{
-      //   margin: 10px 10px 0;
-      // }
-
-      // input[type=text]{
-      //   background: transparent;
-      //   color: whitesmoke;
-      //   border: none;
-      //   border-bottom: 1px solid yellowgreen;
-      //   outline: none;
-      // }
     }
   }
 
@@ -74,26 +161,6 @@
     box-shadow: none;
   }
 
-
-  // input[type=submit]{
-  //   width: fit-content;
-  //   border: none;
-  //   border-radius: 5px;
-  //   padding: 5px 10px;
-  //   margin-top: 10px;
-  //   background: yellowgreen;
-  //   color: white;
-  //   text-shadow: 2px 2px 2px black;
-  // }
-
-  // input[type=submit]:hover{
-  //   box-shadow: 0px 0px 10px 2px yellowgreen;
-  //   text-shadow: none;
-  // }
-
-  // input[type=submit]:active{
-  //   box-shadow: none;
-  // }
 }
 
 .tableDataForm{
@@ -117,7 +184,6 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    //border: 1px solid yellow;
     gap: 10px;
 
     .group{
@@ -133,26 +199,8 @@
         box-shadow: 0 0 0px 1000px transparent inset;
         transition: background-color 5000s ease-in-out 0s;
       }
-
-      // label{
-      //   margin: 10px 10px 0;
-      // }
-
-      // input[type=text]{
-      //   background: transparent;
-      //   color: whitesmoke;
-      //   border: none;
-      //   border-bottom: 1px solid yellowgreen;
-      //   outline: none;
-      // }
     }
   }
-
-  // .form_error{
-  //   margin-top: 10px;
-  //   color: red;
-  //   font-size: 12px;
-  // }
 
   .submit{
     width: fit-content;
@@ -196,5 +244,37 @@
   }
   .mat-input-element::placeholder{
     color: rgb(145, 143, 143);
+  }
+}
+
+::ng-deep .mat-paginator{
+  background: #313131;
+  color: whitesmoke;
+
+  ::ng-deep .mat-paginator-page-size-select {
+    width: 27px!important;
+  }
+
+  ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: #0071c2;
+  }
+
+  ::ng-deep .mat-select-value {
+    color: #0071c2;
+    font-weight: bold;
+    font-size: 13px;
+    padding-right: 15px;
+  }
+
+  ::ng-deep .mat-select-arrow {
+    color: #0071c2;
+  }
+
+  ::ng-deep .mat-option{
+    padding: 0 !important;
+  }
+
+  ::ng-deep .mat-option-text {
+    text-align: right;
   }
 }

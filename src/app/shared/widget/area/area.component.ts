@@ -1,9 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MainchartService } from '../../../services/mainchart.service'
+import { DbPwaService } from '../../../services/db-pwa.service';
+import * as numeral from 'numeral';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
 import theme from 'highcharts/themes/dark-unica';
-import * as numeral from 'numeral';
 
 @Component({
   selector: 'app-widget-area',
@@ -11,23 +12,30 @@ import * as numeral from 'numeral';
   styleUrls: ['./area.component.scss']
 })
 export class AreaComponent implements OnInit {
-
   @Output() dataLabelsId: EventEmitter<any> = new EventEmitter();
   @Output() dataSeries: EventEmitter<any>  = new EventEmitter();
+  @Output() dataSeriesLocal: EventEmitter<any> = new EventEmitter();
+  @Output() getLocalLabels: EventEmitter<any> = new EventEmitter();
+
   public findLocation:Number;
   public data=[];
   public chartOptions:{};
   public Highcharts= Highcharts;
   public labelsData:any;
+  public localLabels:any;
+  public localData:any[]=[];
+  public localDataDB:any[]=[];
 
   constructor(
-    public _mainchartService: MainchartService
-  ) { }
+    public _mainchartService: MainchartService,
+    private _dbPwaService: DbPwaService
+  ) {  }
 
   ngOnInit(): void {
     this.location();
     this.getMainChartInfo();
     theme(Highcharts);
+    this.getLocalData();
   }
 
   location(){
@@ -40,7 +48,7 @@ export class AreaComponent implements OnInit {
       res=>{
         if(res.data[0]!=undefined){
           this.labelsData=res.data[0];
-          this.dataLabelsId.emit(res.data[0]);
+          this.dataLabelsId.emit(this.labelsData);
           let dataId=res.data[0]._id;
           this._mainchartService.getAlldata(dataId).subscribe(
             res=>{
@@ -63,23 +71,58 @@ export class AreaComponent implements OnInit {
                 });
               });
               this.dataSeries.emit(dataDB);
-            },err=>{
-              console.log(<any>err);
+            },
+            error=>{
+              console.log(<any>error);
             }
           );
         }
       },
-      err=>{
-        console.log(<any>err);
+      error=>{
+        console.log(<any>error);
       }
     );
-
     HC_exporting(Highcharts);
     setTimeout(()=>{
       window.dispatchEvent(
         new Event('resize')
       );
     },300);
+  }
+
+  getLocalData(){
+    this._dbPwaService.getMainChartLocalData()
+      .then((items:Array<any>)=>{
+        items.forEach(({doc})=>{
+          if(doc.title){
+            this.localLabels=doc;
+            this.getLocalLabels.emit(this.localLabels);
+          }
+          if(doc.data){
+            var dataArr=doc.data.split(' ');
+            const dataNum= dataArr.map(element => {
+              return parseInt(element);
+            });
+            var localData={
+              name:doc.seriesName,
+              data:dataNum
+            };
+            this.localData.push(localData);
+            let targetStr=numeral(JSON.stringify(doc.target)).format('0,0');
+            let element={
+              serieId:doc.seriesName,
+              name:doc.seriesName,
+              data:JSON.stringify(dataNum),
+              target:targetStr,
+              _rev:doc._rev,
+              _id:doc._id
+            }
+            this.localDataDB.push(element);
+            this.dataSeriesLocal.emit(this.localDataDB);
+          }
+        });
+      })
+    ;
   }
 
   setOptions(data?:any,labels?:any){
@@ -100,7 +143,7 @@ export class AreaComponent implements OnInit {
           },
           stops: [
             [0, color],
-            [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
+            [1, Highcharts.color(color).brighten(-0.3).get('rgb')]
           ]
         };
       }),

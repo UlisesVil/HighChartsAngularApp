@@ -1,4 +1,69 @@
 <div class="wrapper">
+  <div class="sync" [style.display]="(localDBEmpty)? 'block':'none'">
+    <button
+      mat-raised-button
+      type="button"
+      class="btn-sync"
+      (click)="syncLocal()"
+      [disabled]="!localDBEmpty"
+    >
+      Sync
+    </button>
+    <p>
+      You have saved data Offline:
+    </p>
+    <p>
+      When your Internet connection is back push the Sync Button to save it on the server
+    </p>
+
+
+    <div class="localData">
+
+      <div class="localLabels" *ngFor="let label of localLabels">
+        <i
+          class="fas fa-trash"
+          title="Delete this Series"
+          (click)="deleteSeriesLocal(label)"
+        >
+        </i>
+        <h4>Labels</h4>
+        <ul>
+          <li>Chart Title: <span>{{label.title}}</span></li>
+          <li>Chart Sub-Title: <span>{{label.valueSufix}}</span></li>
+          <li>X Label: <span>{{label.seriesName}}</span></li>
+        </ul>
+      </div>
+
+      <div class="tableContent">
+        <h4>Data Series</h4>
+        <table class="dataDB">
+          <div class="deleteWarn" *ngIf="deleteWarn">
+            {{deleteWarn}}
+          </div>
+          <tr class="dataElements" *ngFor="let element of dataSeriesLocal">
+            <td class="elemetName">
+              {{element.name}}
+            </td>
+            <td class="elemetData">
+              <div class="data">
+                {{element.data}} {{pieChartLabels.valueSufix}}
+              </div>
+              <div class="icon">
+                <i class="fas fa-trash"
+                  title="Delete this Element"
+                  (click)="deleteSeriesLocal(element)">
+                </i>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+
   <div class="formContainer">
     <form  [formGroup]="formLabel" class="formLabel">
       <div class="savedWarn" *ngIf="savedLabelsWarn">
@@ -95,7 +160,7 @@
               {{element.data}} {{pieChartLabels.valueSufix}} =
             </div>
             <div class="percentageUnit">
-              {{(element.data*100)/totalPercentage | number: '1.1-1'}} %
+              {{(element.dataNum*100)/totalPercentageNum | number: '1.1-1'}} %
             </div>
             <div class="icon">
               <i class="fas fa-trash"
@@ -115,6 +180,16 @@
   <app-widget-pie
     class="pieSection"
     (dataSeries)="dataSeriesOutput($event)"
-    (dataLabelsId)="getIdLabel($event)">
+    (dataLabelsId)="getIdLabel($event)"
+    (dataSeriesLocal)="dataSeriesLocalOutput($event)"
+    (getLocalLabels)="getLocalLabels($event)">
   </app-widget-pie>
 </div>
+
+<app-warnings
+  *ngIf="modal"
+  [okWarning]="okWarning"
+  [errorWarning]="errorWarning"
+  [sync]="sync"
+  (deactivateErrorMessage)="modalOff($event)"
+></app-warnings>

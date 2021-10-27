@@ -12,18 +12,45 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
+        ],
+        "urls":[
+          "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap",
+          "https://unicons.iconscout.com/release/v4.0.0/css/line.css",
+          "https://kit.fontawesome.com/94235d9528.js"
         ]
       }
     },
     {
       "name": "assets",
-      "installMode": "lazy",
+      "installMode": "prefetch",
       "updateMode": "prefetch",
       "resources": {
         "files": [
           "/assets/**",
+          "/fontawesome-webfont*",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "data-api",
+      "urls": [
+        "https://backend-angular-apps.herokuapp.com/chartsApp",
+        "https://backend-angular-apps.herokuapp.com/chartsApp/getMainChartLabels",
+        "https://backend-angular-apps.herokuapp.com/chartsApp/getdataCards",
+        "https://backend-angular-apps.herokuapp.com/chartsApp/getAlldata",
+        "https://backend-angular-apps.herokuapp.com/chartsApp/getPieChartLabels",
+        "https://backend-angular-apps.herokuapp.com/chartsApp/getAllpiedata",
+        "https://backend-angular-apps.herokuapp.com/chartsApp/getTableLabels",
+        "https://backend-angular-apps.herokuapp.com/chartsApp/getAllTabledata"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 5,
+        "maxAge": "50m",
+        "timeout": "5s"
       }
     }
   ]

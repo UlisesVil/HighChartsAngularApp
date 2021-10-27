@@ -1,0 +1,123 @@
+.modalWarnings{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.637);
+
+  .errorWarning{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    min-width: 200px;
+    height: fit-content;
+    padding: 20px 0 20px 0;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+    background: #161616;
+    border-radius: 5px;
+    border: 1px solid #fd0303;
+
+    .textContent{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .fa-exclamation-circle{
+        font-size: 15px;
+        padding: 20px;
+        line-height: 20px;
+      }
+    }
+
+    .btn{
+      width: fit-content;
+      display: block;
+      border: none;
+      border-radius: 5px;
+      padding: 0px 15px;
+      margin: 0 auto 10px;
+      background: rgb(165, 5, 0);
+      color: white;
+      text-shadow: 2px 2px 2px black;
+    }
+
+    .btn:hover{
+      box-shadow: 0px 0px 10px 2px rgb(156, 156, 156);
+      text-shadow: none;
+    }
+
+    .btn:active{
+      box-shadow: none;
+    }
+  }
+
+  .okWarning{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    min-width: 200px;
+    height: fit-content;
+    padding: 20px 0 20px 0;
+    color: yellowgreen;
+    text-align: center;
+    font-size: 12px;
+    background: #000000;
+    border-radius: 5px;
+    border: 1px  solid yellowgreen;
+
+    .textContent{
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .fa-check{
+        font-size: 15px;
+        padding: 5px;
+        line-height: 20px;
+      }
+
+    }
+    .btn{
+      width: fit-content;
+      display: block;
+      border: none;
+      border-radius: 5px;
+      padding: 0px 15px;
+      margin: 0 auto 10px;
+      background: yellowgreen;
+      color: white;
+      text-shadow: 2px 2px 2px black;
+    }
+
+    .btn:hover{
+      box-shadow: 0px 0px 10px 2px yellowgreen;
+      text-shadow: none;
+    }
+
+    .btn:active{
+      box-shadow: none;
+    }
+
+    video{
+      display: block;
+      width: 150px;
+      margin-top: 10px;
+    }
+  }
+}

@@ -1,8 +1,72 @@
 <div class="wrapper">
+  <div class="sync" [style.display]="(localDBEmpty)? 'block':'none'">
+    <button
+      mat-raised-button
+      type="button"
+      class="btn-sync"
+      (click)="syncLocal()"
+      [disabled]="!localDBEmpty"
+    >
+      Sync
+    </button>
+    <p>
+      You have saved data Offline:
+    </p>
+    <p>
+      When your Internet connection is back push the Sync Button to save it on the server
+    </p>
+
+    <div class="localData">
+      <div class="localLabels" *ngFor="let label of localLabels">
+        <i
+          class="fas fa-trash"
+          title="Delete this Series"
+          (click)="deleteSeriesLocal(label)"
+        >
+        </i>
+        <h4>Labels</h4>
+        <ul>
+          <li>Chart Title: <span>{{label.title}}</span></li>
+          <li>Chart Sub-Title: <span>{{label.subTitle}}</span></li>
+          <li>X Label: <span>{{label.labelXAxis}}</span></li>
+          <li>Y Label: <span>{{label.labelYAxis}}</span></li>
+          <li>Tooltip: <span>{{label.toolTip}}</span></li>
+          <li>Categories: <span>{{label.categories}}</span></li>
+        </ul>
+      </div>
+
+      <div class="chartValues">
+        <h4>Data Series</h4>
+        <div class="deleteWarn">{{deleteWarn}}</div>
+        <div class="dataSeries" *ngIf='dataSeriesLocal'>
+          <div class="series" *ngFor='let item of dataSeriesLocal'>
+            <div class="block">
+              <i
+                class="fas fa-trash"
+                title="Delete this Series"
+                (click)="deleteSeriesLocal(item)"
+              >
+              </i>
+              <div class="seriesHeader">
+                <div class="seriesName">
+                  {{item.name}}
+                </div>
+                <div class="target">
+                  Target:
+                  <span>{{item.target}}</span>
+                </div>
+              </div>
+              <div class="seriesValue">
+                {{item.data}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="dataContainer">
     <div class="formContainer">
-
-
       <form  [formGroup]="formLabel" class="formLabel">
         <p>Chart Labels</p>
         <div class="savedWarn" *ngIf="savedLabelsWarn">
@@ -169,7 +233,16 @@
   <app-widget-area
     (dataSeries)="dataSeriesOutput($event)"
     (dataLabelsId)="getIdLabel($event)"
+    (dataSeriesLocal)="dataSeriesLocalOutput($event)"
+    (getLocalLabels)="getLocalLabels($event)"
   >
   </app-widget-area>
-
 </div>
+
+<app-warnings
+  *ngIf="modal"
+  [okWarning]="okWarning"
+  [errorWarning]="errorWarning"
+  [sync]="sync"
+  (deactivateErrorMessage)="modalOff($event)"
+></app-warnings>
