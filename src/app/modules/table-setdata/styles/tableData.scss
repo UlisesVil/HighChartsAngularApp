@@ -1,0 +1,65 @@
+.tableDataForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 2px black;
+
+  .savedWarn{
+    color: yellowgreen;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .groupContent{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .group{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+
+      input:-webkit-autofill {
+        border: none;
+        -webkit-text-fill-color: whitesmoke;
+        -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+        box-shadow: 0 0 0px 1000px transparent inset;
+        transition: background-color 5000s ease-in-out 0s;
+      }
+    }
+  }
+
+  .submit{
+    width: fit-content;
+    border: none;
+    border-radius: 5px;
+    padding: 0px 15px;
+    margin-top: 10px;
+    background: yellowgreen;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+  }
+
+  .submit:hover{
+    box-shadow: 0px 0px 10px 2px yellowgreen;
+    text-shadow: none;
+  }
+
+  .submit:active{
+    box-shadow: none;
+  }
+
+  .submit:disabled{
+    background: rgba(10, 10, 10, 0.274);
+    color: rgb(133, 133, 133);
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,109 @@
+.tableContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 220px;
+  width: 30%;
+  padding: 10px;
+  box-shadow: 0px 0px 10px 2px black;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  h4{
+    margin: 0 10px 20px 10px;
+    width: 98%;
+    padding-left: 10px;
+    border-bottom:1px solid whitesmoke ;
+
+  }
+
+  .dataDB{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px 5px;
+    box-sizing: content-box;
+
+    .deleteWarn{
+      color: red;
+      font-size: 12px;
+    }
+
+    .dataElements{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: 100%;
+      border: 1px solid yellowgreen;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 2px black;
+      margin: 5px 0;
+
+      .elemetName{
+        width: 40%;
+        align-self: center;
+        margin-right: 10px;
+        padding-left: 5px;
+        overflow: hidden;
+        text-align: left;
+        word-wrap: normal;
+        word-break: keep-all;
+      }
+
+      .elemetData{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-items: center;
+        align-content: space-between;
+        width: 48%;
+        word-wrap: normal;
+        word-break: keep-all;
+
+        .data{
+          display: flex;
+          width: fit-content;
+          align-self: center;
+          overflow: hidden;
+        }
+
+        .percentageUnit{
+          margin-left: 5px;
+          align-self: center;
+          text-align: center;
+        }
+
+        .icon{
+          position: absolute;
+          width: fit-content;
+          right: 0px;
+          justify-self: flex-end;
+
+          .fa-trash{
+            color: rgb(110, 0, 0);
+            cursor: pointer;
+            &:hover{
+              color: rgb(247, 0, 0);
+              text-shadow: 0px 0px 10px rgb(109, 226, 0);
+            }
+          }
+        }
+      }
+
+      @media screen and(max-width:1250px){
+        .elemetData,.elemetName{
+          font-size: 12px;
+          .icon{
+            right: -5px;
+          }
+        }
+      }
+    }
+  }
+}

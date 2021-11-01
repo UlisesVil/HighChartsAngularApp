@@ -1,0 +1,42 @@
+.localLabels{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  min-width: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 2px black;
+
+  .fa-trash{
+    color: rgb(141, 0, 0);
+    cursor: pointer;
+    align-self: flex-end;
+    &:hover{
+      color: rgb(247, 0, 0);
+      text-shadow: 0px 0px 10px rgb(109, 226, 0);
+    }
+  }
+
+  h4{
+    margin: 0 10px 10px 10px;
+    align-self: flex-start;
+    width: 95%;
+    padding-left: 10px;
+    border-bottom:1px solid whitesmoke ;
+    box-sizing: border-box;
+  }
+
+  ul{
+    list-style: none;
+    padding: 0 10px;
+
+    li{
+      color: yellowgreen;
+
+      span{
+        color: whitesmoke;
+      }
+    }
+  }
+}

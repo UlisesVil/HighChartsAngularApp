@@ -1,0 +1,103 @@
+.formLabel{
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 10px;
+  padding: 20px 40px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 2px black;
+  box-sizing: border-box;
+
+  p{
+    margin: 0;
+  }
+
+  .group{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    flex-wrap: nowrap;
+
+    input:-webkit-autofill {
+      border: none;
+      -webkit-text-fill-color: whitesmoke;
+      -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+      box-shadow: 0 0 0px 1000px transparent inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    .spacing{
+      word-spacing: 5px;
+    }
+  }
+
+  .submit{
+    width: fit-content;
+    border: none;
+    border-radius: 5px;
+    padding: 0px 15px;
+    margin-top: 10px;
+    background: yellowgreen;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+  }
+
+  .submit:hover{
+    box-shadow: 0px 0px 10px 2px yellowgreen;
+    text-shadow: none;
+  }
+
+  .submit:active{
+    box-shadow: none;
+  }
+
+  .instructions{
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid yellowgreen;
+    box-sizing: border-box;
+
+    ol{
+      padding: 5px 5px 5px 20px;
+
+      li{
+        text-align: justify;
+        font-size: 12px;
+        margin: 0;
+        margin-bottom: 10px;
+
+        .spacing{
+          word-spacing: 5px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width:620px){
+    .group{
+      flex-direction: column;
+
+      label{
+        margin-top: 10px;
+      }
+
+      input[type=text],
+      input[type=number]{
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:620px){
+  .formLabel{
+    margin: 0;
+    padding: 20px 5px;
+  }
+}

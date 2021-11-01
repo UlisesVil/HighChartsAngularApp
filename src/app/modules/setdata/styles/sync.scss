@@ -1,0 +1,199 @@
+.sync{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(153, 0, 255);
+  box-shadow: 0px 0px 10px 2px black;
+  box-sizing: border-box;
+
+  .btn-sync{
+    width: fit-content;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    padding: 0px 15px;
+    margin: 0 auto 10px;
+    background: yellowgreen;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+  }
+
+  .btn-sync:hover{
+    box-shadow: 0px 0px 10px 2px yellowgreen;
+    text-shadow: none;
+  }
+
+  .btn-sync:active{
+    box-shadow: none;
+  }
+
+  p{
+    text-align: center;
+  }
+
+  .localData{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .localLabels{
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      min-width: 200px;
+      padding: 10px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 2px black;
+
+      .fa-trash{
+        color: rgb(141, 0, 0);
+        cursor: pointer;
+        align-self: flex-end;
+      }
+
+      .fa-trash:hover{
+        text-shadow:2px 2px 10px yellowgreen;
+      }
+
+      h4{
+        width: 95%;
+        align-self: flex-start;
+        padding-left: 10px;
+        margin: 0 10px 10px 10px;
+        border-bottom:1px solid whitesmoke ;
+        box-sizing: border-box;
+      }
+
+      ul{
+        list-style: none;
+        padding: 0 10px;
+
+        li{
+          color: yellowgreen;
+
+          span{
+            color: whitesmoke;
+          }
+        }
+      }
+    }
+
+    .chartValues{
+      min-width: 150px;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 2;
+      align-content: center;
+      justify-content: center;
+      align-self: flex-start;
+      flex-wrap: wrap;
+      padding: 10px 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 2px black;
+      box-sizing: content-box;
+
+      h4{
+        width: 98%;
+        align-self: flex-start;
+        margin: 0 10px 20px 10px;
+        padding-left: 10px;
+        border-bottom:1px solid whitesmoke ;
+      }
+
+      .deleteWarn{
+        color: red;
+        font-size: 12px;
+        display: block;
+        align-self: center;
+      }
+
+      .dataSeries{
+        width: 100%;
+        min-width: 150px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-self: center;
+        gap: 10px;
+        box-sizing: border-box;
+        flex-grow: 2;
+
+        .series{
+          display: flex;
+          width: fit-content;
+          min-width: 150px;
+          justify-content: center;
+          flex-wrap: nowrap;
+          flex-grow: 1;
+
+          .block{
+            min-width: 200px;
+            max-width: fit-content;
+            position: relative;
+            padding: 2px 20px;
+            margin-top: 3px;
+            border-radius: 5px;
+            border: 1px solid yellowgreen;
+            box-shadow: 0px 0px 10px 2px black;
+            box-sizing: border-box;
+            font-size: 12px;
+
+            .fa-trash{
+              position: absolute;
+              right: 5px;
+              top: 5px;
+              color: rgb(141, 0, 0);
+              cursor: pointer;
+            }
+
+            .fa-trash:hover{
+              text-shadow:2px 2px 10px yellowgreen;
+            }
+
+            .seriesHeader{
+              display: flex;
+              flex-direction: row;
+              border-bottom: 1px solid whitesmoke;
+
+              .seriesName{
+                margin-top: 0px;
+                width: fit-content;
+                min-width: 100px;
+              }
+
+              .target{
+                width: fit-content;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                span{
+                  color: yellowgreen;
+                  margin-left: 5px;
+                }
+              }
+            }
+
+            .seriesValue{
+              margin-top: 0px;
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width:620px){
+        .dataSeries{
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
