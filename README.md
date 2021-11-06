@@ -1,10 +1,12 @@
-# HighChartsAngularApp
-Angular App  based on HighChart Library
+# HighCharts Angular PWA
+## Angular Progressive Web App based on HighChart Library
 
 
-This fully Responsive application is available on the web, built-in Angular on the Frontend, and communicates with a Node JS REST API deployed on Heroku on the backend.
+This Progressive Web App (PWA) is fully Responsive and is available on the web, built-in Angular on the Frontend, and communicates with a Node JS REST API deployed on Heroku on the backend.
 
 The database comes from Mongo DB Atlas.
+
+Because it is a Progressive Web App (PWA), it can be installed as a desktop application or like an app on a mobile phone using the Chrome or Microsoft Edge browser. It will work while the user is not connected to the internet and saves the information in a local database in the browser, for later when the internet connection is re-established, all data stored in the local database will sync the online database.
 
 The principal function of this application is to display information through charts to help the user make decisions or only show data in a presentation.
 
